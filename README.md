@@ -4,16 +4,13 @@ Users Table
 | Column | type | Options |
 |---------------------|-------|--------|
 | name | string | |
-| sex | string | |
+| sex | integer | |
 | birth | string | |
 | e-mail | string | |
 | tel | string | |
-| confirmation | string | |
 | language | string | |
 | currency | string | |
 | identification | binary | |
-
-
 
 全ての属性が入力必須(null:false)
 
