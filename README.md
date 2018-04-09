@@ -1,24 +1,26 @@
-# README
+Users Table
+必須項目
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column | type | Options |
+|---------------------|-------|--------|
+| name | string | |
+| sex | string | |
+| birth | string | |
+| e-mail | string | |
+| tel | string | |
+| confirmation | string | |
+| language | string | |
+| currency | string | |
+| identification | binary | |
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+全ての属性が入力必須(null:false)
 
-* Configuration
+任意項目
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column | type | Options |
+|---------|-------|--------|
+| address | string | |
+| profile | text | |
+| avatar | binary | |
