@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Airbnb_clone_production
-  username: Airbnb_clone
-  password: <%= ENV['AIRBNB_CLONE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
