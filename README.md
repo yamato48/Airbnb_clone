@@ -11,6 +11,7 @@ Users Table
 | language | string | null:false |
 | currency | string | null:false |
 | identification | binary | null:false |
+| avatar | binary | null:false |
 
 
 任意項目
@@ -19,4 +20,3 @@ Users Table
 |---------|-------|--------|
 | address | string | null:false |
 | profile | text | null:false |
-| avatar | binary | null:false |
