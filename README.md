@@ -3,7 +3,8 @@ Users Table
 
 | Column | type | Options |
 |---------------------|-------|--------|
-| name | string | null:false |
+| first_name | string | null:false |
+| last_name | string | null:false |
 | sex | integer | null:false |
 | birth | string | null:false |
 | e-mail | string | null:false |
