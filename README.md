@@ -3,21 +3,20 @@ Users Table
 
 | Column | type | Options |
 |---------------------|-------|--------|
-| name | string | |
-| sex | integer | |
-| birth | string | |
-| e-mail | string | |
-| tel | string | |
-| language | string | |
-| currency | string | |
-| identification | binary | |
+| name | string | null:false |
+| sex | integer | null:false |
+| birth | string | null:false |
+| e-mail | string | null:false |
+| phone_number | string | null:false |
+| language | string | null:false |
+| currency | string | null:false |
+| identification | binary | null:false |
 
-全ての属性が入力必須(null:false)
 
 任意項目
 
 | Column | type | Options |
 |---------|-------|--------|
-| address | string | |
-| profile | text | |
-| avatar | binary | |
+| address | string | null:false |
+| profile | text | null:false |
+| avatar | binary | null:false |
