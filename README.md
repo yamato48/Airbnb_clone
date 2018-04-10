@@ -11,8 +11,8 @@ Users Table
 | phone_number | string | null:false |
 | language | string | null:false |
 | currency | string | null:false |
-| identification | binary | null:false |
-| avatar | binary | null:false |
+| identification | string | null:false |
+| avatar | string | null:false |
 
 
 任意項目
