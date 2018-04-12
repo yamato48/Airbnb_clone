@@ -344,6 +344,7 @@
 
 ## Users Table
 <!-- 必須項目 -->
+
 | Column | type | Options |
 |---------------------|-------|--------|
 | first_name | string | null:false |
