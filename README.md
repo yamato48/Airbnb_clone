@@ -40,22 +40,22 @@
 ### Association
 
 - has_many :bedrooms
-- has_many :amenities, through: :amenity_details
-- has_many :amenities_details
-- has_many :safety_amenities, thtough: :amenity_details
-- has_many :safety_amenities_details
-- has_many :available_spaces, through: :available_space_details
-- has_many :available_space_details
-- has_many :house_discription_checkboxies, through: :house_discription_checkbox_details
-- has_many :house_discription_checkbox_details
-- has_many :currencies, through: :currency_details
-- has_many :currency_details
-- has_many :house_rules, thtough: :house_rule_details
-- has_many :house_rule_details
-- has_many :add_house_rules, thtough: :add_house_rule_details
-- has_many :add_house_rule_details
-- has_many :notification_before_stays, thtough: :notification_before_stay_details
-- has_many :notification_before_stay_details
+- has_many :amenities, through: :houses_amenities
+- has_many :houses_amenities
+- has_many :safety_amenities, through: :houses__safety_amenities
+- has_many :houses__safety_amenities
+- has_many :available_spaces, through: :houses__available_spaces
+- has_many :houses__available_spaces
+- has_many :house_discription_checkboxies, through: :houses__house_discription_checkboxies
+- has_many :houses__house_discription_checkboxies
+- has_many :currencies, through: :houses_currencies
+- has_many :houses_currencies
+- has_many :house_rules, thtough: :houses__house_rules
+- has_many :houses__house_rules
+- has_many :add_house_rules, thtough: :houses__add_house_rules
+- has_many :houses__add_house_rules
+- has_many :notification_before_stays, thtough: :houses__notification_before_stays
+- has_many :houses__notification_before_stays
 - has_many :add_reservations_rules
 - has_many :room_images
 
@@ -69,9 +69,9 @@
 
 ### Association
 
-- has_many :beds, through: :bed_details
-- has_many :bed_details_
-- belongs_to :houses
+- has_many :beds, through: :bedrooms_beds
+- has_many :bedrooms_beds
+- belongs_to :house
 
 
 ## bedsテーブル
@@ -82,11 +82,11 @@
 
 ### Association
 
-- has_many :bedrooms, through: :bed_details
-- has_many :bed_details
+- has_many :bedrooms, through: :bedrooms_beds
+- has_many :bedrooms_beds
 
 
-## bed_detailsテーブル
+## bedrooms_bedsテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -108,11 +108,11 @@
 
 ### Association
 
-- has_many :house, through: :amenity_details
-- has_many :amenity_details
+- has_many :house, through: :houses_amenities
+- has_many :houses_amenities
 
 
-## amenity_detailsテーブル
+## houses_amenitiesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -133,11 +133,11 @@
 
 ### Association
 
-- has_many :house, through: :safety_amenity_details
-- has_many :safety_amenity_details
+- has_many :house, through: :houses__safety_amenities
+- has_many :houses__safety_amenities
 
 
-## safety_amenity_detailsテーブル
+## houses__safety_amenitiesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -158,7 +158,7 @@
 
 ### Association
 
-- belongs_to :houses
+- belongs_to :house
 
 
 ## available_spacesテーブル
@@ -169,11 +169,11 @@
 
 ### Association
 
-- has_many :houses, through: :available_space_detail
-- has_many :available_space_detail
+- has_many :houses, through: :houses__available_spaces
+- has_many :houses__available_spaces
 
 
-## available_space_detailsテーブル
+## houses__available_spacesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -194,15 +194,22 @@
 
 ### Association
 
-- has_many :houses, through: :house_discription_checkbox_details- has_many :house_discription_checkbox_details
+- has_many :houses, through: :houses__house_discription_checkboxies
+- has_many :houses__house_discription_checkboxies
 
 
-## house_discription_checkbox_details
+## houses__house_discription_checkboxies
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |house_id  |string |null: false, foreign_key: true|
 |house_discription_checkbox_id  |references |null: false, foreign_key: true|
+
+
+### Association
+
+- belongs_to :house
+- belongs_to :house_discription_checkbox
 
 
 ## add_house_discription_checkboxies
@@ -225,11 +232,11 @@
 
 ### Association
 
-- has_many :houses, through: :house_rule_details
-- has_many :house_rule_details
+- has_many :houses, through: :houses__house_rules
+- has_many :houses__house_rules
 
 
-## house_rule_detailsテーブル
+## houses__house_rulesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -250,10 +257,10 @@
 
 ### Association
 
-- has_many :houses, through: :add_house_rule_details
-- has_many :add_house_rule_details
+- has_many :houses, through: :houses__add_house_rules
+- has_many :houses__add_house_rules
 
-## add_house_rule_detailsテーブル
+## houses__add_house_rulesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -274,11 +281,11 @@
 
 ### Association
 
-- has_many :houses, through: :notification_before_stay_details
-- has_many :notification_before_stay_details
+- has_many :houses, through: :houses__notification_before_stays
+- has_many :houses__notification_before_stays
 
 
-## notification_before_stay_detailsテーブル
+## houses__notification_before_staysテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -310,11 +317,11 @@
 
 ### Association
 
-- has_many :house, through: :currency_details
-- has_many :currency_details
+- has_many :house, through: :houses_currencies
+- has_many :houses_currencies
 
 
-## currency_detailsテーブル
+## houses_currenciesテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
