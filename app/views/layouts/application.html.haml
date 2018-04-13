@@ -14,8 +14,8 @@
           .head_icon
             = image_tag "layout/logo.png", width: "45px", height: "45px", alt: "logo"
           .head_search
-            = form_for @host do |f|
-              = f.text_field :area, class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'
+            %form{action: search_host_index_path, method: :get}
+              %input{name: 'area', class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'}
         .col-md-6.hidden-sm.hidden-xs
           %ul
             %li
@@ -35,11 +35,11 @@
             %li
               = image_tag "", alt: "user_photo"
 
-    %article
+    %article.clearfix
       = yield
 
     %footer
-      .container
+      .container.hidden-xs
         .col-xs-3
           %h4 Airbnb
           %ul
