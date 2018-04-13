@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'tboot#index'
-  get 'tboot/index'
+  root 'host#index'
+  get 'host/index'
 end

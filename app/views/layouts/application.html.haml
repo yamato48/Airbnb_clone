@@ -1,10 +1,102 @@
 !!!
 %html
-  %head
-    %meta{content: "text/html; charset=UTF-8", 'http-equiv': "Content-Type"}/
-    %title AirbnbClone
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %header
+    .container
+      %meta{content: "text/html; charset=UTF-8", 'http-equiv': "Content-Type"}/
+      %title AirbnbClone
+      = csrf_meta_tags
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+      = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    %header
+      .head_inner.clearfix
+        .col-md-6.col-sm-12
+          .head_icon
+            = image_tag "layout/logo.png", width: "45px", height: "45px", alt: "logo"
+          .head_search
+            = form_for @host do |f|
+              = f.text_field :area, class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'
+        .col-md-6.hidden-sm.hidden-xs
+          %ul
+            %li
+              = link_to "部屋を掲載"
+            %li
+              = link_to "ホスト"
+            %li
+              = link_to "お気に入り"
+            %li
+              = link_to "旅行"
+            %li
+              = link_to "メッセージ"
+            %li
+              = link_to "クーポン"
+            %li
+              = link_to "ヘルプ"
+            %li
+              = image_tag "", alt: "user_photo"
+
+    %article
+      = yield
+
+    %footer
+      .container
+        .col-xs-3
+          %h4 Airbnb
+          %ul
+            %li
+              = link_to "採用情報"
+            %li
+              = link_to "プレス"
+            %li
+              = link_to "ポリシー"
+            %li
+              = link_to "ヘルプ"
+            %li
+              = link_to "ダイバーシティ&"
+            %li
+              = link_to "ビロンギング"
+        .col-xs-3
+          %h4 スタッフのおすすめ
+          %ul
+            %li
+              = link_to "信頼&安全"
+            %li
+              = link_to "友達を招待する"
+            %li
+              = link_to "Airbnb Citizen"
+            %li
+              = link_to "出張"
+            %li
+              = link_to "ガイドブック"
+            %li
+              = link_to "Airbnbmag"
+        .col-xs-3
+          %h4 ホスティング
+          %ul
+            %li
+              = link_to "ホストになる理由"
+            %li
+              = link_to "おもてなしの心"
+            %li
+              = link_to "ホストの責任"
+            %li
+              = link_to "コミュニティセンター"
+        .col-xs-3
+          %h4 sns
+          %ul
+            %li
+              = link_to "利用規約"
+            %li
+              = link_to "プライバシー"
+            %li
+              = link_to "サイトマップ"
+      .container
+        .foot2.col-xs-12
+          .foot2__left
+            %p
+              = image_tag "layout/logo.png",  width: "24px", height: "24px", alt: "logo"
+            %p
+              ©Airbnb, Ink
+          .foot2__right
+            .language_btn 言語設定ボタン
+            .currency_btn 通貨設定ボタン
