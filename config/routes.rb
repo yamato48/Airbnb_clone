@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'host#index'
-  get 'host/index'
+  resources :host do
+    collection do
+      get 'search'
+    end
+  end
 end
