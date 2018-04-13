@@ -3,6 +3,8 @@
 <!-- 宿泊施設の登録機能に必須テーブル -->
 ## housesテーブル
 
+#### 宿泊施設の登録時保存するためのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |category  |string |null: false|
@@ -62,6 +64,8 @@
 
 ## bedroomsテーブル
 
+####　ユーザーのベッドルーム情報に関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |house_id|references |null: false, foreign_key: true|
@@ -76,6 +80,8 @@
 
 ## bedsテーブル
 
+####　ユーザーのベッドのタイプなどに関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |bed_name|integer |unique: true|
@@ -87,6 +93,8 @@
 
 
 ## bedrooms_bedsテーブル
+
+####　bedsテーブルとbedroomsを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -102,6 +110,8 @@
 
 ## amenitiesテーブル
 
+####　宿泊施設のアメニティーに関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |amenity_name|string |unique: true|
@@ -113,6 +123,8 @@
 
 
 ## houses_amenitiesテーブル
+
+####　housesテーブルとamenitesテーブルを繋ぐ中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -127,6 +139,8 @@
 
 ## safety_amenitiesテーブル
 
+####　なんだっけ？笑
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |safety_amenity_name|string |unique: true|
@@ -138,6 +152,8 @@
 
 
 ## houses__safety_amenitiesテーブル
+
+####　housesテーブルとsafety_amenitiesテーブルを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -152,6 +168,8 @@
 
 ## room_imagesテーブル
 
+####　宿泊施設の内装などの写真を保存しておくためのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |room_image|string ||
@@ -162,6 +180,8 @@
 
 
 ## available_spacesテーブル
+
+####　宿泊施設ないにある、利用可能スペースなどテーブル（exプール、キッチン）
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -174,6 +194,8 @@
 
 
 ## houses__available_spacesテーブル
+
+####　housesテーブルとavailable_spacesテーブルを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -188,6 +210,8 @@
 
 ## house_discription_checkboxies
 
+####　宿泊施設の説明に関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |item  |string |unique: true|
@@ -199,6 +223,8 @@
 
 
 ## houses__house_discription_checkboxies
+
+####　housesテーブルとhouse_discription_checkboxiesテーブルを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -214,6 +240,8 @@
 
 ## add_house_discription_checkboxies
 
+####　なんだっけ？
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |house_id  |references |null: false, foreign_key: true|
@@ -226,6 +254,8 @@
 
 ## house_rulesテーブル
 
+####　宿泊施設のルールに関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |house_rule|string ||
@@ -237,6 +267,8 @@
 
 
 ## houses__house_rulesテーブル
+
+####　housesテーブルとhouse_rulesを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -251,6 +283,8 @@
 
 ## add_house_rulesテーブル
 
+####　宿泊施設のルールに何か追加したいものがあった時に関してのテーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |add_house_rule|string |unique: true|
@@ -261,6 +295,8 @@
 - has_many :houses__add_house_rules
 
 ## houses__add_house_rulesテーブル
+
+####　housesテーブルとadd_house_rulesテーブルを繋ぐ中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -275,6 +311,8 @@
 
 ## notification_before_staysテーブル
 
+####　ユーザーが宿泊施設に泊まるにあたって事前に伝えなくてはいけないことに関してのテーブル <補足を加える>
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |notification|string |unique: true|
@@ -286,6 +324,8 @@
 
 
 ## houses__notification_before_staysテーブル
+
+#### housesテーブルとnotification_before_staysテーブルを繋ぐための中間テーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -300,6 +340,8 @@
 
 ## add_reservations_rulesテーブル
 
+####　なんだっけ？
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |guest_requirement|string ||
@@ -310,6 +352,8 @@
 
 
 ## currenciesテーブル
+
+####　宿泊施設を利用するにあたっての使用する通貨に関してのテーブル
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -323,6 +367,8 @@
 
 ## houses_currenciesテーブル
 
+####　hosuesテーブルとcurrenciesテーブルを繋ぐための中間テーブル
+
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
 |house_id|references |null: false, foreign_key: true|
@@ -335,6 +381,7 @@
 
 
 ## ※※※保留※※※予約受付日カレンダー
+
 
 | Column   | Type  |           Options    |
 |----------|-------|----------------------|
@@ -351,6 +398,8 @@
 
 ## Users Table
 <!-- 必須項目 -->
+
+####　ユーザー情報に関してのテーブル
 
 | Column | type | Options |
 |---------------------|-------|--------|
