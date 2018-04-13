@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+  %panel
+    %panel-header
+      必須項目
+        %panel-contents
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_first_name"}
+              名
+            .col-sm-9
+              %input#user_first_name{:name => "user[first_name]", :size => "30", :type => "text", :value => "貝原"}/
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_last_name"}
+              姓
+            .col-sm-9
+              %input#user_last_name{:name => "user[last_name]", :size => "30", :type => "text", :value => "光"}/
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_sex"}
+              性別
+              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
+            .col-sm-9
+              %select#user_sex{:name => "user[sex]"}
+                %option{:selected => "selected", :value => ""} 性別
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_birthdate"}
+              生年月日
+              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
+            .col-sm-9
+              .field_set
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_email"}
+              メールアドレス
+              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
+            .col-sm-9
+              .fieldset
+                %input#user_email{:name => "user[email]", :size => "30", :type => "text", :value => "logic3cb1059k@yahoo.co.jp"}/
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_phone"}
+              電話番号
+              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
+            .col-sm-9
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_profile_info_preferred_language"}
+              ご希望の言語
+            .col-sm-9
+          .row.row-condensed.space-4
+            %label.text-right.col-sm-3{:for => "user_profile_info_preferred_currency"}
+              ご希望の通貨
+            .col-sm-9
+          .row.row-condensed.space-4
+          %label.text-right.col-sm-3{:for => "user_first_name"}
+            現住所
+            .col-sm-9
+              %input#user_profile_info_current_city
+          .row.row-condensed.space-4
+          %label.text-right.col-sm-3{:for => "user_first_name"}
+            自己紹介
+            .col-sm-9
+
+
+
+
+
+
