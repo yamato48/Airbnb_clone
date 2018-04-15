@@ -10,19 +10,20 @@
   %body
     %header
       .head_inner.clearfix
-        .col-md-6.col-sm-12
+        .col-md-5.col-sm-12
           .head_icon
-            = image_tag "layout/logo.png", width: "45px", height: "45px", alt: "logo"
+            = link_to host_index_path do
+              = image_tag "layout/logo.png", width: "45px", height: "45px", alt: "logo"
           .head_search
             %form{action: search_host_index_path, method: :get}
               %input{name: 'area', class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'}
-        .col-md-6.hidden-sm.hidden-xs
+        .col-md-7.hidden-sm.hidden-xs
           %ul
             - if user_signed_in?
               %li
                 = link_to "部屋を掲載"
               %li
-                = link_to "ホスト"
+                = link_to "ホスト", new_host_path
               %li
                 = link_to "お気に入り"
               %li
