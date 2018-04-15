@@ -18,22 +18,34 @@
               %input{name: 'area', class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'}
         .col-md-6.hidden-sm.hidden-xs
           %ul
-            %li
-              = link_to "部屋を掲載"
-            %li
-              = link_to "ホスト"
-            %li
-              = link_to "お気に入り"
-            %li
-              = link_to "旅行"
-            %li
-              = link_to "メッセージ"
-            %li
-              = link_to "クーポン"
-            %li
-              = link_to "ヘルプ"
-            %li
-              = image_tag "", alt: "user_photo"
+            - if user_signed_in?
+              %li
+                = link_to "部屋を掲載"
+              %li
+                = link_to "ホスト"
+              %li
+                = link_to "お気に入り"
+              %li
+                = link_to "旅行"
+              %li
+                = link_to "メッセージ"
+              %li
+                = link_to "クーポン"
+              %li
+                = link_to "ヘルプ"
+              %li
+                = link_to "ログアウト", destroy_user_session_path,method: :delete
+              %li
+                = image_tag "", alt: "user_photo"
+            - else
+              %li
+                = link_to "ホストをはじめる"
+              %li
+                = link_to "ヘルプ"
+              %li
+                = link_to "アカウント作成", new_user_registration_path
+              %li
+                = link_to "ログイン", new_user_session_path, method: :post
 
     %article.clearfix
       = yield
