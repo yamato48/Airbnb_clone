@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable a
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable
+         :timeoutable
 
   enum sex: [:male, :female, :other]
   enum language: [:english, :mandarinchinese, :cantonchinese, :spanish, :russian, :italian, :french, :german, :portusuese, :arabic, :turkish, :vietnamese, :hindi, :malay, :thai, :korean, :japanese, :dutch, :norwegian, :swedish, :danish]
