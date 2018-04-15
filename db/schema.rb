@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 20180413103845) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
+    t.date     "birth_day",                           null: false
     t.integer  "sex"
-    t.date     "birth_year"
-    t.date     "birth_month"
-    t.date     "birth_day"
     t.string   "phone_number"
     t.integer  "language"
     t.integer  "currency"
