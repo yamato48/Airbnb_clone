@@ -6,20 +6,20 @@
       %h2 Create Acount
       %h5 新規アカウント登録
       .field
-      /   .field-label
-      /     = f.label :last_name
-      /   .field-input
-      /     = f.text_field :last_name, placeholder: "性", autofocus: true
-      / .field
-      /   .field-label
-      /     = f.label :first_name
-      /   .field-input
-      /     = f.text_field :first_name, placeholder: "名", autofocus: true
+        .field-label
+          = f.label :last_name
+        .field-input
+          = f.text_field :last_name, placeholder: "姓"
+      .field
+        .field-label
+          = f.label :first_name
+        .field-input
+          = f.text_field :first_name, placeholder: "名"
       / .field
       /   .field-label
       /     = f.label :sex
       /   .field-input
-      /     = f.select :sex, User.sexes.keys
+      /     = f.select :sex, User.sexes_i18n.invert
       / .feild
       /   .field-label
       /     = f.label :birth
@@ -168,12 +168,12 @@
       /   .field-label
       /     = f.label :language
       /   .field-input
-      /     = f.select :language, User.languages.keys
+      /     = f.select :language, User.languages_i18n.invert
       / .field
       /   .field-label
       /     = f.label :currency
       /   .field-input
-      /     = f.select :currency, User.currencies.keys
+      /     = f.select :currency, User.currencies_i18n.invert
       / .field
       /   .field-label
       /     =f.label :identification
