@@ -1,62 +1,126 @@
-<!DOCTYPE html>
-  %panel
-    %panel-header
-      必須項目
-        %panel-contents
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_first_name"}
-              名
-            .col-sm-9
-              %input#user_first_name{:name => "user[first_name]", :size => "30", :type => "text", :value => "貝原"}/
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_last_name"}
-              姓
-            .col-sm-9
-              %input#user_last_name{:name => "user[last_name]", :size => "30", :type => "text", :value => "光"}/
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_sex"}
-              性別
-              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
-            .col-sm-9
-              %select#user_sex{:name => "user[sex]"}
-                %option{:selected => "selected", :value => ""} 性別
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_birthdate"}
-              生年月日
-              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
-            .col-sm-9
-              .field_set
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_email"}
-              メールアドレス
-              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
-            .col-sm-9
-              .fieldset
-                %input#user_email{:name => "user[email]", :size => "30", :type => "text", :value => "logic3cb1059k@yahoo.co.jp"}/
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_phone"}
-              電話番号
-              %i.icon.icon-lock.icon-ebisu{"aria-label" => "プライベート", "data-behavior" => "tooltip", :tabindex => "0"}
-            .col-sm-9
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_profile_info_preferred_language"}
-              ご希望の言語
-            .col-sm-9
-          .row.row-condensed.space-4
-            %label.text-right.col-sm-3{:for => "user_profile_info_preferred_currency"}
-              ご希望の通貨
-            .col-sm-9
-          .row.row-condensed.space-4
-          %label.text-right.col-sm-3{:for => "user_first_name"}
-            現住所
-            .col-sm-9
-              %input#user_profile_info_current_city
-          .row.row-condensed.space-4
-          %label.text-right.col-sm-3{:for => "user_first_name"}
-            自己紹介
-            .col-sm-9
-
-
+.main
+  #notification-area
+  .page-containaer-responsive.space-top-4.space-4
+    .row
+      .col-md-3.space-sm-4
+        .sidenavi
+          %ul.sidenav-list
+            %li.sidenav-item
+              %a{ href: ''}プロフィールを編集
+            %li.sidenav-item-btm
+              %a{ href: ''}写真
+            %li.sidenav-item-btm
+              %a{ href: ''}信頼＆認証確認
+            %li.sidenav-item-btm
+              %a{ href: ''}レビュー
+            %li.sidenav-item-btm
+              %a{ href: ''}紹介文
+        .btn.btn-block.space-top-4
+          %a{ href: '/users/show/:id'}プロフィールを見る
+      .col-md-9#dashboard-content
+        =form_for(current_user) do |f|
+          .panel.space-4
+            .panel-header 必須項目
+            .panel-body
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :last_name, "姓"
+                .col-sm-9
+                  = f.text_field :last_name, placeholder: "姓", class: 'form-large'
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :first_name, "名"
+                .col-sm-9
+                  = f.text_field :first_name, placeholder: "名", class: 'form-large'
+                  .text-muted.space-top-1 公開用プロフィールにはファーストネームのみ表示されます。予約をリクエストする際、ホストフルネームが表示されます。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :sex, "性別"
+                  .icon.glyphicon.glyphicon-lock
+                  / = fa_icon 'fa-unlock-alt', class: 'icon'
+                .col-sm-9
+                  = f.select :sex, User.sexes_i18n.invert
+                  .text-muted.space-top-1 他ユーザーには共有されることはありません。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :birth_day, "生年月日"
+                  .icon.glyphicon.glyphicon-lock
+                .col-xs-3.col-sm-3.col-md-3
+                  = f.date_select(                        |
+                    :birth_day,                           |
+                    include_blank: true,                  |
+                    start_year:     1930,                 |
+                    end_year:       (Time.now.year - 18) | 
+                  .text-muted.space-top-1 あなたがこの世に生を受けた記念すべき日。この大切な個人情報は決して外部使用されることはありませんので、ご安心ください。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :email, "メールアドレス"
+                  .icon.glyphicon.glyphicon-lock
+                .col-sm-9
+                  = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'form-large'
+                  .text-muted.space-top-1 メールアドレスが一般のAirbnbユーザーに共有されることはありません。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :phone, "電話番号"
+                  .icon.glyphicon.glyphicon-lock
+                .col-sm-9
+                  =f.text_field :phone_number, placeholder: "電話番号", autofucus: true, class: 'form-large'
+                  .text-muted.space-top-1 この情報は関係者同士の連絡手段。予約確定『後』まで先方のAirbnbユーザーにも秘密です。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :language, "ご希望の言語"
+                .col-sm-9
+                  = f.select :language, User.languages_i18n.invert
+                  .text-muted.space-top-1　受け取るメッセージの標準言語です。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :currency, "ご希望の通貨"
+                .col-sm-9
+                  = f.select :currency, User.currencies_i18n.invert 
+                  .text-muted.space-top-1 この通貨で価格を表示します。
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :address, "現住所" 
+                .col-sm-9
+                  = f.text_field :address, placeholder: "例　日本東京,フランスパリ,イギリスロンドン", autofocus: true,class: 'form-large'
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :profile, "自己紹介"
+                .col-sm-9
+                  = f.text_area :profile,class: 'form-xlarge'
+                  .text-muted.space-top-1 
+                    %h5
+                      Airbnbの基本は人間関係です。自分を知ってもらう努力しましょう。
+                      %br
+                      %br
+                      好きなものを教えてください。これなしでは生きていけないものを５つ挙げるとしたら何ですか？お気に入りの旅先、本、映画、スポーツ、食べ物は？
+                      %br
+                      %br
+                      自分はゲストやホストとしてどうでしょう？旅のスタイル（こだわり、流儀）、Airbnbでホストする際のスタイルを教えてください。
+                      %br
+                      %br
+                      自分の人柄を知ってもらいましょう。人生のモットーは何ですか。
+                      %br
+          .panel.space-4
+            .panel-header 任意項目
+            .panel-body
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :school, "学校"
+                .col-sm-9
+                  = f.text_field :school, class: 'form-large',autofocus: true
+              .row.row-condensed.space-4
+                .text-right.col-sm-3
+                  = f.label :workplace, "勤務先"
+                .col-sm-9
+                  = f.text_field :workplace, placeholder: '会社名または役職名',class: 'form-large',autofocus: true
+              / .row.row-condensed.space-4
+              /   .text-right.col-sm-3
+              /     = f.label :emergency_contact, "緊急連絡先"
+              /     %i.fas.fa-unlock-alt
+              /   .col-sm-9
+              /     = f.text_field :emergency_contact, autofocus: true
+          .btn.btn-primary.btn-large 保存する
 
 
 

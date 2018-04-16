@@ -1,3 +1,4 @@
+/* hosts#index ========================================== */
 h3 {
   font-weight: bold;
 }
@@ -30,5 +31,52 @@ h3 {
     content: " /泊";
   }
   .rate {
+  }
+}
+
+/* hosts#new ========================================== */
+.contents {
+  width: 800px;
+  margin: 0 auto;
+  background-color: #FAFAFA;
+  .left_content {
+    width: 490px;
+    background-color: #FFF;
+    h2 {
+      font-weight: bold;
+    }
+    .form_box {
+      padding: 30px;
+      .category,.room {
+        margin-top: 23px;
+        p {
+          color: #888;
+        }
+        label {
+          margin-top: 18px;
+          margin-bottom: -10px;
+          font-weight: normal;
+          font-size: 1.3em;
+        }
+        select {
+          color: #333;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          background-color: #FFF;
+          height: 50px;
+          width:  320px;
+          text-indent: 1em;
+          // background:#EEE url(../img_common/arw_select_down.png) no-repeat;
+          // background-size:20px 10px;
+          // background-position: right center;
+        }
+      }
+    }
+  }
+  .right_content {
   }
 }
