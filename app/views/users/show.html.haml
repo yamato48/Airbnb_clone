@@ -1,0 +1,34 @@
+.side-panel
+  .side-panel__profile-img
+  = image_tag ""
+  .side-panel__panel
+    .side-panel__panel--header
+      %p 認証済み項目
+    .side-panel__panel--body
+      %p 政府発行の身分証明書
+      %p メールアドレス
+      %p 電話番号
+      = link_to "認証項目を追加"
+  .side-panel__panel
+    .side-panel__panel--header
+      %p 基本データ
+    .side-panel__panel--body
+      %p 学校
+      %p 言語
+.contents
+  .contents__header
+    %h1
+      = "こんにちは、#{@user.first_name}です！"
+    = link_to "#{@user.address}", "user.addressのhouse検索結果URL"
+    ・
+    = "#{@user.created_at.strftime("%Y年%-m月")}からメンバー"
+    %span.glyphicon{"aria-hidden" => "true", :class => "glyphicon-flag"}
+      このユーザーを報告
+    = link_to  "プロフィールを編集", edit_user_path
+    .contents__header--review
+      %span#review-count 0
+      %span.review レビュー
+    .contents__header--identified
+      %span#
+  .contents__favorite
+  .contents__review
