@@ -47,8 +47,6 @@ ActiveRecord::Schema.define(version: 20180415033132) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end
-  
-ActiveRecord::Schema.define(version: 20180413103845) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
