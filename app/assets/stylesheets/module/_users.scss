@@ -14,10 +14,6 @@
 	font-family: 'klee'
 }
 
-.row {
-
-}
-
 .col-md-3 {
 	float: left;
 	padding: 0 12px;
@@ -71,10 +67,6 @@
 
 }
 
-.space-4 {
-
-}
-
 .col-md-9 {
 	float: left;
 	.panel {
@@ -107,7 +99,6 @@
 	margin-left: -16px;
 	margin-right: -16px;
 	.text-right {
-		// color: #484848;
 		padding: 9px 6px 8px 6px;
 	}
 	.col-sm-3 {
@@ -203,24 +194,6 @@
 	// display: inline-block;
 	// width: auto;
 }
-
-
-
-
-	// -webkit-appearance: button;
-	// -moz-appearance: button;
-	// appearance: button;
-	// text-indent: 1em;
-	// width: 100%;
-	// padding: 10px;
-	// -webkit-appearance: none;
-	// -moz-appearance: none;
-	// appearance: none;
-	// border: 1px solid #999;
-	// background: #eee;
-	// background: url(arrow01.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#efebe1 100%);
-	// background: url(arrow01.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#efebe1 100%);
-	// background-size: 20px, 100%;
 
 .text-muted {
 	color: #767676;
