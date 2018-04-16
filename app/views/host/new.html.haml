@@ -9,16 +9,16 @@
           %p
             = f.select :category, Host.categories_i18n.invert, prompt: "1つ選択してください"
           %p
-            = f.label :hose_type, "次に建物タイプを選んでください"
+            = f.label :house_type, "次に建物タイプを選んでください"
           %p
-            = f.select :hose_type, Host.categories_i18n.invert, prompt: "建物タイプを選択"
+            = f.select :house_type, Host.house_types_i18n.invert, prompt: "建物タイプを選択"
           %p
             ヘリテージホテルは、インドの宮殿、ハヴェリ(旧邸宅)、砦などの歴史文化財を宿泊専業施設として改築し、プロの宿泊事業者がゲストに公開しているものです。
         .room
           %p
-            = f.label :category, "物件の総部屋数は？"
+            = f.label :size_of_building, "物件の総部屋数は？"
           %p
-            = f.select :category, Host.size_of_buildings_i18n.invert
+            = f.select :size_of_building, Host.size_of_buildings_i18n.invert
           %p
             = f.label :room_type, "部屋タイプは？"
           %p
