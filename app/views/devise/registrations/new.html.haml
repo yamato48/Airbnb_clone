@@ -8,12 +8,14 @@
       .field
         .field-input
           = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email"
+      %h2 Create Acount
       .field
         .field-input
           = f.text_field :last_name, placeholder: "姓"
       .field
         .field-input
           = f.text_field :first_name, placeholder: "名"
+
       .feild
         .field-label
           = f.label :birth_day, "生年月日"
