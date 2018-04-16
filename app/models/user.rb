@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # アソシエーション部分
+  has_many :hosts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable a
   devise :database_authenticatable, :registerable,

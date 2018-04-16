@@ -50,7 +50,7 @@
                     :birth_day,                           |
                     include_blank: true,                  |
                     start_year:     1930,                 |
-                    end_year:       (Time.now.year - 18) | 
+                    end_year:       (Time.now.year - 18)) |
                   .text-muted.space-top-1 あなたがこの世に生を受けた記念すべき日。この大切な個人情報は決して外部使用されることはありませんので、ご安心ください。
               .row.row-condensed.space-4
                 .text-right.col-sm-3
@@ -76,11 +76,11 @@
                 .text-right.col-sm-3
                   = f.label :currency, "ご希望の通貨"
                 .col-sm-9
-                  = f.select :currency, User.currencies_i18n.invert 
+                  = f.select :currency, User.currencies_i18n.invert
                   .text-muted.space-top-1 この通貨で価格を表示します。
               .row.row-condensed.space-4
                 .text-right.col-sm-3
-                  = f.label :address, "現住所" 
+                  = f.label :address, "現住所"
                 .col-sm-9
                   = f.text_field :address, placeholder: "例　日本東京,フランスパリ,イギリスロンドン", autofocus: true,class: 'form-large'
               .row.row-condensed.space-4
@@ -88,7 +88,7 @@
                   = f.label :profile, "自己紹介"
                 .col-sm-9
                   = f.text_area :profile,class: 'form-xlarge'
-                  .text-muted.space-top-1 
+                  .text-muted.space-top-1
                     %h5
                       Airbnbの基本は人間関係です。自分を知ってもらう努力しましょう。
                       %br
@@ -121,7 +121,3 @@
               /   .col-sm-9
               /     = f.text_field :emergency_contact, autofocus: true
           .btn.btn-primary.btn-large 保存する
-
-
-
-

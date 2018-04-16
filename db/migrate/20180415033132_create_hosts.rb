@@ -1,10 +1,10 @@
 class CreateHosts < ActiveRecord::Migration[5.0]
   def change
     create_table :hosts do |t|
-      t.string        :category
-      t.string        :house_type
-      t.string        :room_type
-      t.string        :is_this_room_using_guest_only
+      t.integer       :category
+      t.integer       :house_type
+      t.integer       :room_type
+      t.integer       :is_this_room_using_guest_only
       t.integer       :capacity
       t.integer       :num_bedroom
       t.integer       :num_bed

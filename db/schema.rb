@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20180415033132) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "category"
-    t.string   "house_type"
-    t.string   "room_type"
-    t.string   "is_this_room_using_guest_only"
+    t.integer  "category"
+    t.integer  "house_type"
+    t.integer  "room_type"
+    t.integer  "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 20180415033132) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.date     "birth_year"
-    t.date     "birth_month"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.date     "birth_day",                           null: false
