@@ -1,5 +1,9 @@
 - if controller_name != 'sessions'
-  = link_to "ログイン", new_session_path(resource_name)
+  .login
+    .login__text
+      .text Airbnbアカウントはお持ちですか?
+    .login__btn
+      = link_to "ログイン", new_session_path(resource_name)
   %br/
 - if devise_mapping.registerable? && controller_name != 'registrations'
   = link_to "登録", new_registration_path(resource_name)
