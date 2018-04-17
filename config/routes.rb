@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'host#index'
+  root 'hosts#index'
   resources :users, only: [:show, :edit]
-  resources :host do
+  resources :hosts do
     collection do
       get 'search'
     end
   end
-
 end
