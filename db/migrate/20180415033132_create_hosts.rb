@@ -1,9 +1,11 @@
 class CreateHosts < ActiveRecord::Migration[5.0]
   def change
     create_table :hosts do |t|
+      t.references    :user, foreign_key: true
       t.integer       :category
       t.integer       :house_type
       t.integer       :room_type
+      t.integer       :size_of_building
       t.integer       :is_this_room_using_guest_only
       t.integer       :capacity
       t.integer       :num_bedroom

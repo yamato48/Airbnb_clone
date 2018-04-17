@@ -1,7 +1,7 @@
-.user-regist {
+.col-xs-12.col-md-4 {
   border: 1px solid $line-gray;
-  max-width: 450px;
-  margin: auto;
+  min-width: 450px;
+
   font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
   color: $text-gray;
@@ -43,6 +43,13 @@
       border: 1px solid $form-gray;
       padding: 10px 35px 10px 10px;
     }
+    .login-form {
+      width: 100%;
+      height: 64px;
+      font-size: 16px;
+      border: 1px solid $form-gray;
+      padding: 10px 35px 10px 10px;
+    }
     .glyphicon {
       float: right;
       position: relative;
@@ -56,9 +63,6 @@
       display: inline-block;
       background-color: $white;
       border-radius: 2px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       padding: 8px 28px 8px 10px;
     }
     #user_birth_day_1i {
@@ -71,17 +75,45 @@
       width: 30%;
     }
   }
-  .submit-btn {
+  .btn {
     width: 100%;
-    background-color: $red;
-    color: $white;
     padding: 20px 27px;
-    margin: 10px 0 20px;
-    border: 1px solid $red;
     border-radius: 4px;
+  }
+  .btn#submit {
+    color: $white;
+    background-color: $red;
+    border: 1px solid $red;
+    margin: 10px 0 20px;
+  }
+  .btn#fb {
+    color: $white;
+    background-color: $fb;
+    border: 1px solid $fb;
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .btn#gg {
+    font-size: 16px;
+    margin: 0 0 6px;
   }
   .login {
     border-top: 1px solid $line-gray;
+    padding: 20px 0 20px;
+    &__text {
+      float: left;
+      font-size: 16px;
+      line-height: 34px;
+    }
+    &__btn {
+      float: right;
+      border: 1px solid $red;
+      border-radius: 4px;
+      color: $red;
+      padding: 7px 21px;
+    }
+  }
+  .signup {
     padding: 20px 0 20px;
     &__text {
       float: left;

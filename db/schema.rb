@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 20180415033132) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "category"
-    t.string   "house_type"
-    t.string   "room_type"
-    t.string   "is_this_room_using_guest_only"
+    t.integer  "user_id"
+    t.integer  "category"
+    t.integer  "house_type"
+    t.integer  "room_type"
+    t.integer  "size_of_building"
+    t.integer  "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180415033132) do
     t.string   "profile_image"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,4 +80,5 @@ ActiveRecord::Schema.define(version: 20180415033132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "hosts", "users"
 end

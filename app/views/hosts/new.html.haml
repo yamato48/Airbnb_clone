@@ -2,6 +2,7 @@
   .left_content
     %h2 掲載するのはどんなお部屋ですか?
     .form_box
+      -# ハッシュにするとでてくる意味がわからない
       = form_for @host do |f|
         .category
           %p
@@ -23,4 +24,5 @@
             = f.label :room_type, "部屋タイプは？"
           %p
             = f.select :room_type, Host.room_types_i18n.invert
+        = f.submit "送信"
   .right_content
