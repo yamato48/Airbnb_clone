@@ -12,10 +12,10 @@
       .head_inner.clearfix
         .col-md-5.col-sm-12
           .head_icon
-            = link_to host_index_path do
+            = link_to hosts_path do
               = image_tag "layout/logo.png", width: "45px", height: "45px", alt: "logo"
           .head_search
-            %form{action: search_host_index_path, method: :get}
+            %form{action: search_hosts_path, method: :get}
               %input{name: 'area', class: 'head_search__search_box', placeholder: '「トロント」などエリアを入力'}
         .col-md-7.hidden-sm.hidden-xs
           %ul
