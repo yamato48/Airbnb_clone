@@ -1,6 +1,6 @@
 .main
   #notification-area
-  .page-containaer-responsive.space-top-4.space-4
+  .page-container-responsive.space-top-4.space-4
     .row
       .col-md-3.space-sm-4
         .sidenavi
@@ -46,7 +46,7 @@
                   = f.label :birth_day, "生年月日"
                   .icon.glyphicon.glyphicon-lock
                 .col-xs-3.col-sm-3.col-md-3
-                  = f.date_select(                        |
+                  = f.date_select                        |
                     birth_day:,                           |
                     include_blank: true,                  |
                     start_year:     1930,                 |
