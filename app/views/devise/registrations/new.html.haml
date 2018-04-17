@@ -3,8 +3,8 @@
     .user-new-1
       = devise_error_messages!
     .row
-    .col-xs-12
-      .user-regist
+      .hidden-xs.col-md-4
+      .col-xs-12.col-md-4
         .field
           .text
             %span Facebook
@@ -46,6 +46,6 @@
               start_year:     1930,                 |
               end_year:       (Time.now.year - 18)) |
         .actions
-          = f.submit "登録",class: "submit-btn"
+          = f.submit "登録", class: 'btn', id: 'submit'
         = render "devise/shared/links"
-
+      .hidden-xs.col-md-4
