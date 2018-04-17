@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .sidebar {
   float: left;
+  &__panel {
+    @include border();
+    
+  }
 }
 
 .main-contents {
