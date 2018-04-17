@@ -1,24 +1,24 @@
-.container
+.container#user_show
   .row
-    .side-panel.hidden-xs.hidden-sm.col-lg-3.col-lg-offset-1.col-md-4.col-md-offset-1
-      .side-panel__profile-img
+    .sidebar.hidden-xs.hidden-sm.col-lg-3.col-md-4.col-lg-offset-1
+      .sidebar__profile-img
       = image_tag "avatar_sample.jpg", width: "200px", height: "200px"
       -# 登録項目のみ選択的に表示する
-      .side-panel__panel
-        .side-panel__panel--header
+      .sidebar__panel
+        .sidebar__panel--header
           %p 認証済み項目
-        .side-panel__panel--body
+        .sidebar__panel--body
           %p 政府発行の身分証明書
           %p メールアドレス
           %p 電話番号
           = link_to "認証項目を追加", "/users/:id/edit/verification"
-      .side-panel__panel
-        .side-panel__panel--header
+      .sidebar__panel
+        .sidebar__panel--header
           %p 基本データ
-        .side-panel__panel--body
+        .sidebar__panel--body
           %p 学校
           %p 言語
-    .main-contents.col-lg-7.col-md-6
+    .main-contents.col-lg-7.col-md-6.col-lg-offset-1
       .contents__header
         %h1
           = "こんにちは、#{@user.first_name}です！"
