@@ -1,35 +1,53 @@
-.side-panel
-  .side-panel__profile-img
-  = image_tag ""
-  -# 登録項目のみ選択的に表示する
-  .side-panel__panel
-    .side-panel__panel--header
-      %p 認証済み項目
-    .side-panel__panel--body
-      %p 政府発行の身分証明書
-      %p メールアドレス
-      %p 電話番号
-      = link_to "認証項目を追加"
-  .side-panel__panel
-    .side-panel__panel--header
-      %p 基本データ
-    .side-panel__panel--body
-      %p 学校
-      %p 言語
-.contents
-  .contents__header
-    %h1
-      = "こんにちは、#{@user.first_name}です！"
-    = link_to "#{@user.address}", "user.addressのhouse検索結果URL"
-    ・
-    = "#{@user.created_at.strftime("%Y年%-m月")}からメンバー"
-    %span.glyphicon{"aria-hidden" => "true", :class => "glyphicon-flag"}
-      このユーザーを報告
-    = link_to  "プロフィールを編集", edit_user_path
-    .contents__header--review
-      %span#review-count 0
-      %span.review レビュー
-    .contents__header--identified
-      %span#
-  .contents__favorite
-  .contents__review
+.container
+  .row
+    .side-panel.hidden-sm.col-lg-3.col-lg-offset-1.col-md-4.col-md-offset-1
+      .side-panel__profile-img
+      = image_tag "avatar_sample.jpg", width: "200px", height: "200px"
+      -# 登録項目のみ選択的に表示する
+      .side-panel__panel
+        .side-panel__panel--header
+          %p 認証済み項目
+        .side-panel__panel--body
+          %p 政府発行の身分証明書
+          %p メールアドレス
+          %p 電話番号
+          = link_to "認証項目を追加", "/users/:id/edit/verification"
+      .side-panel__panel
+        .side-panel__panel--header
+          %p 基本データ
+        .side-panel__panel--body
+          %p 学校
+          %p 言語
+    .main-contents.col-lg-7.col-md-6
+      .contents__header
+        %h1
+          = "こんにちは、#{@user.first_name}です！"
+        %h5
+          = link_to "#{@user.address}" #"user.addressのhouse検索結果URL"
+          ・
+          = "#{@user.created_at.strftime("%Y年%-m月")}からメンバー"
+        .contents__header--1
+          %span.glyphicon{"aria-hidden" => "true", :class => "glyphicon-flag"}
+            このユーザーを報告
+          .edit_profile
+            = link_to  "プロフィールを編集", edit_user_path
+        .contents__header--2
+          %span#review-count 0
+          %span レビュー
+          = image_tag "layout/verified_badge.png", width: "32px", height: "32px"
+          %span 認証済み
+      .contents__wishlists.hidden-sm
+        %h2 お気に入り
+        -# 複数のhouseが保存されたお気に入りのリストのリストを表示。仮にrootのhouseの写真を表示
+        .row
+          .panel.col-lg-4.col-md-4
+            = render partial: "wish_list"
+          .panel.col-lg-4.col-md-4
+            = render partial: "wish_list"
+      .contents__review
+        .contents__review--header
+          %h2 レビュー
+        .btn.col-lg-12 日本語にレビューを翻訳する
+        .contents__review--body
+          %h4 ホストからのレビュー
+          = render partial: "review"
