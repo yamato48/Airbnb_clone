@@ -47,7 +47,7 @@
                   .icon.glyphicon.glyphicon-lock
                 .col-xs-3.col-sm-3.col-md-3
                   = f.date_select(                        |
-                    :birth_day,                           |
+                    birth_day:,                           |
                     include_blank: true,                  |
                     start_year:     1930,                 |
                     end_year:       (Time.now.year - 18) |
