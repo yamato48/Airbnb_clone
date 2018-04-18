@@ -5,6 +5,7 @@
 .sidebar {
   float: left;
   &__profile-img {
+
     margin-top: 20px;
   }
   &__panel {
@@ -25,4 +26,48 @@
   color: $dark-gray;
   padding-top: 10px;
   margin: 0;
+}
+
+.main-contents {
+  float: right;
+  &__header0 h1,h5 {
+    color: $dark-gray;
+  }
+  &__header1 {
+    margin-bottom: 30px;
+  }
+  #review-count {
+    padding: 6px 9px;
+    color: $white;
+    background-color: $light-orange;
+    border-radius: 6px;
+  }
+  .panel {
+    color: $white;
+    text-align: center;
+    position: relative;
+    .wish_list {
+      position: absolute;
+      top: 70px;
+      width: 100%;
+      .btn {
+        background-color: $ocher;
+      }
+    }
+  }
+  &__review {
+    margin-bottom: 100px;
+    .review__user-avatar {
+      text-align: center;
+      a {
+        color: $text-gray;
+      }
+    }
+    .btn {
+      margin-bottom: 20px;
+    }
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
 }
