@@ -1,6 +1,6 @@
 .container#user_show
   .row
-    .sidebar.hidden-xs.hidden-sm.col-lg-3.col-md-4.col-lg-offset-1
+    .sidebar.hidden-xs.hidden-sm.col-lg-3.col-md-4
       .sidebar__profile-img
       = image_tag "avatar_sample.jpg", width: "262px", height: "262px"
       -# 登録項目のみ選択的に表示する
@@ -20,7 +20,7 @@
           = "#{@user.sex}"
           %p 言語
           = "#{@user.language}"
-    .main-contents.col-lg-7.col-md-6
+    .main-contents.col-lg-9.col-md-8
       .main-contents__header0
         %h1
           = "こんにちは、#{@user.first_name}です！"
