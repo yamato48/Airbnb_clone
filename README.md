@@ -380,19 +380,6 @@
 - belongs_to :currency
 
 
-## ※※※保留※※※予約受付日カレンダー
-
-
-| Column   | Type  |           Options    |
-|----------|-------|----------------------|
-
-
-## ※※※保留※※※ 位置情報テーブル
-
-| Column   | Type  |           Options    |
-|----------|-------|----------------------|
-
-
 
 <!-- ユーザー登録機能に必須テーブル -->
 ## Users Table
@@ -417,3 +404,39 @@
 |---------|-------|--------|
 | address | string | null:false |
 | profile | text | null:false |
+
+
+
+## reservations Table
+
+#### 予約に関してのテーブル
+
+| Column | type | Options |
+|---------------------|-------|--------|
+| user_id   | references | foreign_key: true |
+| host_id   | references | foreign_key: true |
+| start_day | datetime   ||
+| end_day   | datetime   ||
+<!-- どのくらいの人数が泊まるのか？っていうデータは必要なのか否か -->
+<!-- | count | integer | | -->
+| price | integer | |
+| total | integer | |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+
+
+
+
+## ※※※保留※※※予約受付日カレンダー
+
+
+| Column   | Type  |           Options    |
+|----------|-------|----------------------|
+
+
+## ※※※保留※※※ 位置情報テーブル
+
+| Column   | Type  |           Options    |
+|----------|-------|----------------------|
