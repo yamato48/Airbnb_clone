@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   def media
   end
 
+  def show
+    @user = current_user
+  end
+  
   private
 
   def user_params

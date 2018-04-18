@@ -1,0 +1,18 @@
+.review
+  .row
+    .review__user-avatar.col-lg-2.col-sm-12
+      -# hostへのリンク
+      %a{href: ""}
+        = image_tag "avatar_sample2.jpg", class: "img-circle", width: "68px", height: "68px"
+        -# host.name
+        .hostname
+          host
+    .review__text.col-lg-10.col-sm-12
+      %p (サンプル)快適な部屋とご対応でした。
+    .review__detail.col-lg-10.col-sm-12
+      こちらは
+      = link_to "予約したユーザーの名前", user_path
+      さんが予約したグループ旅行のレビューです
+    %span.col-lg-10.col-sm-12.hidden-sm
+      From Host's address(ex. Shinjuku), Country・宿泊年月・
+      %span.glyphicon{"aria-hidden" => "true", :class => "glyphicon-flag"}

@@ -1,0 +1,58 @@
+.container#user_show
+  .row
+    .sidebar.hidden-xs.hidden-sm.col-lg-3.col-md-4
+      .sidebar__profile-img
+      = image_tag "avatar_sample.jpg", width: "262px", height: "262px"
+      -# 登録項目のみ選択的に表示する
+      .sidebar__panel
+        .sidebar__panel--header
+          %h5 認証済み項目
+        .sidebar__panel--body
+          %p 政府発行の身分証明書
+          %p メールアドレス
+          %p 電話番号
+          = link_to "認証項目を追加", "/users/:id/edit/verification"
+      .sidebar__panel
+        .sidebar__panel--header
+          %h5 基本データ
+        .sidebar__panel--body#attribution
+          %p 性別
+          = "#{@user.sex}"
+          %p 言語
+          = "#{@user.language}"
+    .main-contents.col-lg-9.col-md-8
+      .main-contents__header0
+        %h1
+          = "こんにちは、#{@user.first_name}です！"
+        %h5
+          = link_to "#{@user.address}" #"user.addressのhouse検索結果URL"
+          ・
+          = "#{@user.created_at.strftime("%Y年%-m月")}からメンバー"
+      .main-contents__header1
+        %span.glyphicon{"aria-hidden" => "true", :class => "glyphicon-flag"}
+          このユーザーを報告
+        .edit_profile
+          = link_to  "プロフィールを編集", edit_user_path
+      .introduction
+        %p
+          = "#{@user.profile}"
+      .main-contents__header2
+        %span#review-count 0
+        %span レビュー
+        = image_tag "layout/verified_badge.png", width: "32px", height: "32px"
+        %span 認証済み
+      .main-contents__wishlists.hidden-sm
+        %h2 お気に入り
+        -# 複数のhouseが保存されたお気に入りのリストのリストを表示。仮にrootのhouseの写真を表示
+        .row
+          .panel.col-lg-4.col-md-4
+            = render partial: "wish_list"
+          .panel.col-lg-4.col-md-4
+            = render partial: "wish_list"
+      .main-contents__review
+        .main-contents__review--header
+          %h2 レビュー
+        .btn.translation.col-lg-12 日本語にレビューを翻訳する
+        .main-contents__review--body
+          %h4 ホストからのレビュー
+          = render partial: "review"
