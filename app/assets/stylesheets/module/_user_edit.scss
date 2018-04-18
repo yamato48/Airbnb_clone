@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.co
 .body {
-	// font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-size: 14px;
 	line-height: 1.43;
 
 }
 .main {
-	// font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: normal;
-	font-family: 'klee'
+	// font-family: 'klee'
 }
 
 .col-md-3 {
@@ -82,8 +81,6 @@
 		.panel-header {
 			font-size: 16px;
 			padding: 12px 20px;
-			// padding-top: 12px;
-			// padding-bottom: 12px;
 			border-bottom: 1px solid;
 			border-color: #dce0e0;
 			background-color: #edefed;
@@ -137,17 +134,17 @@
 	}
 	select,option {
 		width: 200px;
-	　height: 30px;
-	　padding-top: 8px;
-	  padding-bottom: 8px;
+		// height: 30px;
+		padding-top: 8px;
+		padding-bottom: 8px;
 	  padding-right: 2em;
-	　margin: 0;
-	　text-indent: 1em;
-	　border: none;
-	　-webkit-appearance: none;
-	　-moz-appearance: none;
-	　-ms-appearance: none;
-	　appearance: none;
+		margin: 0;
+		text-indent: 1em;
+		border: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
 		color: #333;
 		// background-color: #FFF;
 		position: relative;
@@ -156,7 +153,17 @@
 		// -moz-border-radius: 3px;
 		// border-radius: 3px;
   //   vertical-align: bottom;
-	}
+		#user_birth_day_1i {
+      width: 37%;
+    }
+    #user_birth_day_2i {
+      width: 30%;
+    }
+    #user_birth_day_3i {
+      width: 30%;
+    }
+  }
+
 	select:before {
 		content: '\25bc';
 		position: absolute;
@@ -188,11 +195,6 @@
 
 #user-currency {
 	background-color: red;
-
-}
-.col-xs-3.col-sm-3.col-md-3 {
-	// display: inline-block;
-	// width: auto;
 }
 
 .text-muted {
@@ -212,4 +214,9 @@
 .btn-large {
 	padding: 9px 27px;
 	font-size: 16px;
+}
+.form_sbmit {
+	border-color: #ff5a5f;
+	color: #fff;
+	background-color: #ff5a5f;
 }
