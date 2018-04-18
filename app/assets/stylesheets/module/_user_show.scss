@@ -57,17 +57,17 @@
   }
   &__review {
     margin-bottom: 100px;
-    .review__user-avatar {
-      text-align: center;
-      a {
-        color: $text-gray;
-      }
-    }
     .btn {
       margin-bottom: 20px;
     }
     h4 {
       margin-bottom: 20px;
+    }
+    .review__user-avatar {
+      text-align: center;
+      a {
+        color: $text-gray;
+      }
     }
   }
 }
