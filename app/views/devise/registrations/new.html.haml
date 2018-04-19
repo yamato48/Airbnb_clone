@@ -2,44 +2,50 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .user-new-1
       = devise_error_messages!
-      .col-md-12
-      %h5 FacebookまたはGoogleで登録
-      %h5 または
-      .field
-        .field-input
-          = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email"
-      .field
-        .field-input
-          = f.text_field :last_name, placeholder: "姓"
-      .field
-        .field-input
-          = f.text_field :first_name, placeholder: "名"
-      .feild
-        .field-label
-          = f.label :birth_day, "生年月日"
-          %h5 ご登録は18歳以上の方に限ります。誕生日は非公開です
-        .field-input
-          = f.date_select(                        |
-            :birth_day,                           |
-            include_blank: true,                  |
-            start_year:     1930,                 |
-            end_year:       (Time.now.year - 18), |
-            date_separator: '/')                  |
-      .field
-        .field-label
-          = f.label :password
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} characters minimum)
-        .field-input
-          = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off"
-      .field
-        .field-label
-          = f.label :password_confirmation
-        .field-input
-          = f.password_field :password_confirmation, placeholder: "パスワード(確認)", autocomplete: "off"
-      .actions
-        = f.submit "登録",class: "btn"
-      %h5 Airbnbアカウントはお持ちですか?
-      = render "devise/shared/links"
-
+    .row
+      .hidden-xs.col-md-4
+      .col-xs-12.col-md-4
+        .field
+          .text
+            %span Facebook
+            または
+            %span Google
+            で登録
+        .signup-separator
+          .signup-separator__text または
+          %hr
+        .field
+          .field-input
+            = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: 'input-form'
+            %span.glyphicon.glyphicon-envelope
+        .field
+          .field-input
+            = f.text_field :last_name, placeholder: "姓", class: 'input-form'
+            %span.glyphicon.glyphicon-user
+        .field
+          .field-input
+            = f.text_field :first_name, placeholder: "名", class: 'input-form'
+            %span.glyphicon.glyphicon-user
+        .feild
+          .field-input
+            = f.password_field :password, placeholder: "パスワードを作成", autocomplete: "off", class: 'input-form'
+            %span.glyphicon.glyphicon-lock
+          .field-alert
+        .field
+          .field-input
+            = f.password_field :password_confirmation, placeholder: "パスワード(確認)", autocomplete: "off", class: 'input-form'
+            %span.glyphicon.glyphicon-lock
+        .field
+          .field-label
+            = f.label :birth_day, "生年月日"
+            .text ご登録は18歳以上の方に限ります。誕生日は非公開です
+          .field-input
+            = f.date_select(                        |
+              :birth_day,                           |
+              include_blank: true,                  |
+              start_year:     1930,                 |
+              end_year:       (Time.now.year - 18)) |
+        .actions
+          = f.submit "登録", class: 'btn', id: 'submit'
+        = render "devise/shared/links"
+      .hidden-xs.col-md-4

@@ -78,8 +78,10 @@ ActiveRecord::Schema.define(version: 20180416075837) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
-    t.date     "birth_day",                           null: false
     t.integer  "sex"
+    t.date     "birth_year"
+    t.date     "birth_month"
+    t.date     "birth_day"
     t.string   "phone_number"
     t.integer  "language"
     t.integer  "currency"
@@ -89,5 +91,4 @@ ActiveRecord::Schema.define(version: 20180416075837) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
 end

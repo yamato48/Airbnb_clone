@@ -1,0 +1,131 @@
+.col-xs-12.col-md-4 {
+  border: 1px solid $line-gray;
+  min-width: 450px;
+
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  color: $text-gray;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  padding: 32px 32px 20px 32px;
+  text-align: center;
+  .text {
+    margin: auto;
+    span {
+      color: $green;
+    }
+  }
+  .signup-separator {
+    background: none;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    &__text {
+      background-color: $white;
+      padding: 8px;
+      display: inline-block;
+    }
+    hr {
+      margin: -16px auto 10px;
+      width: 100%;
+      border-top: 1px solid $line-gray;
+    }
+  }
+  .field-label {
+    margin-top: 18px;
+    text-align: left;
+  }
+  .field-input {
+    margin-bottom: 6px;
+    .input-form {
+      width: 100%;
+      height: 40px;
+      border: 1px solid $form-gray;
+      padding: 10px 35px 10px 10px;
+    }
+    .login-form {
+      width: 100%;
+      height: 64px;
+      font-size: 16px;
+      border: 1px solid $form-gray;
+      padding: 10px 35px 10px 10px;
+    }
+    .glyphicon {
+      float: right;
+      position: relative;
+      height: 5px;
+      top: -25px;
+      right: 10px;
+      color: $form-gray;
+    }
+    select {
+      height: 40px;
+      display: inline-block;
+      background-color: $white;
+      border-radius: 2px;
+      padding: 8px 28px 8px 10px;
+    }
+    #user_birth_day_1i {
+      width: 37%;
+    }
+    #user_birth_day_2i {
+      width: 30%;
+    }
+    #user_birth_day_3i {
+      width: 30%;
+    }
+  }
+  .btn {
+    width: 100%;
+    padding: 20px 27px;
+    border-radius: 4px;
+  }
+  .btn#submit {
+    color: $white;
+    background-color: $red;
+    border: 1px solid $red;
+    margin: 10px 0 20px;
+  }
+  .btn#fb {
+    color: $white;
+    background-color: $fb;
+    border: 1px solid $fb;
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .btn#gg {
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .login {
+    border-top: 1px solid $line-gray;
+    padding: 20px 0 20px;
+    &__text {
+      float: left;
+      font-size: 16px;
+      line-height: 34px;
+    }
+    &__btn {
+      float: right;
+      border: 1px solid $red;
+      border-radius: 4px;
+      color: $red;
+      padding: 7px 21px;
+    }
+  }
+  .signup {
+    padding: 20px 0 20px;
+    &__text {
+      float: left;
+      font-size: 16px;
+      line-height: 34px;
+    }
+    &__btn {
+      float: right;
+      border: 1px solid $red;
+      border-radius: 4px;
+      color: $red;
+      padding: 7px 21px;
+    }
+  }
+}

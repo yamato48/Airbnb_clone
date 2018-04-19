@@ -1,0 +1,73 @@
+#user_show {
+  color: #666;
+}
+
+.sidebar {
+  float: left;
+  &__profile-img {
+
+    margin-top: 20px;
+  }
+  &__panel {
+    margin: 20px 0;
+    border: 1px solid $line-gray;
+    &--header {
+      background-color: $line-gray;
+      padding: 10px;
+      border-bottom: 1px solid $line-gray;
+    }
+    &--body {
+      padding: 18px;
+    }
+  }
+}
+
+#attribution p {
+  color: $dark-gray;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.main-contents {
+  float: right;
+  &__header0 h1,h5 {
+    color: $dark-gray;
+  }
+  &__header1 {
+    margin-bottom: 30px;
+  }
+  #review-count {
+    padding: 6px 9px;
+    color: $white;
+    background-color: $light-orange;
+    border-radius: 6px;
+  }
+  .panel {
+    color: $white;
+    text-align: center;
+    position: relative;
+    .wish_list {
+      position: absolute;
+      top: 70px;
+      width: 100%;
+      .btn {
+        background-color: $ocher;
+      }
+    }
+  }
+  &__review {
+    margin-bottom: 100px;
+    .translation {
+      margin-bottom: 20px;
+    }
+    h4 {
+      margin-bottom: 20px;
+    }
+    .review__user-avatar {
+      text-align: center;
+      a {
+        color: $text-gray;
+      }
+    }
+  }
+}

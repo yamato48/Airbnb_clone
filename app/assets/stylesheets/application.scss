@@ -1,5 +1,9 @@
 @import "module/reset";
+@import "config/variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "module/layout";
 @import "module/host";
+@import "module/user_show";
+@import "module/user_regist";
+@import "module/user_edit";
