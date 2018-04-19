@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [] do
-    resources :house_types, only: :index
+    resources :house_types, only: [:index, :show] do
+    end
   end
 end

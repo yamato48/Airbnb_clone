@@ -7,6 +7,7 @@ class HostsController < ApplicationController
   def new
     @host = Host.new
     @user = current_user
+    # @house_types = House_type.all
   end
 
   def create
