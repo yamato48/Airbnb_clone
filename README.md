@@ -417,10 +417,11 @@
 | host_id   | references | foreign_key: true |
 | start_day | datetime   ||
 | end_day   | datetime   ||
-<!-- どのくらいの人数が泊まるのか？っていうデータは必要なのか否か -->
-<!-- | count | integer | | -->
-| price | integer | |
-| total | integer | |
+| adult | integer ||
+| child | integer ||
+| baby | integer ||
+| price | integer ||
+| total | integer ||
 
 ### Association
 - belongs_to :user
