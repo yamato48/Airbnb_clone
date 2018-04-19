@@ -2,23 +2,28 @@
   .left_content
     %h2 掲載するのはどんなお部屋ですか?
     .form_box
-      = form_for @host do |f|
+      = form_for @host, url: "/host" do |f|
         .category
           %p
             = f.label :category, "まずカテゴリを絞りましょう"
           %p
-            = f.select :category, Host.categories_i18n.invert, prompt: "1つ選択してください"
+            - category_options = Category.order(:id).map { |c| [c.name, c.id, data: { house_type_path: category_house_types_path(c) }] }
+            = f.select :category, category_options, { include_blank: "1つ選択してください" } , class: 'select-category'
           %p
-            = f.label :hose_type, "次に建物タイプを選んでください"
+            = f.label :house_type, "次に建物タイプを選んでください"
           %p
-            = f.select :hose_type, Host.categories_i18n.invert, prompt: "建物タイプを選択"
+            - category = @host.category
+            - house_types = category.try(:category_house_types).try(:house_types) || []
+            - house_type_options = house_types.map { |c| [c.name, c.id] }
+            = f.select :house_type, house_type_options,  { include_blank: "建物タイプを選択" } , class: 'select-house-type'
+
           %p
             ヘリテージホテルは、インドの宮殿、ハヴェリ(旧邸宅)、砦などの歴史文化財を宿泊専業施設として改築し、プロの宿泊事業者がゲストに公開しているものです。
         .room
-          %p
-            = f.label :category, "物件の総部屋数は？"
-          %p
-            = f.select :category, Host.size_of_buildings_i18n.invert
+          / %p
+          /   = f.label :num_room, "物件の総部屋数は？"
+          / %p
+          /   = f.select :num_room, Host.size_of_buildings_i18n.invert
           %p
             = f.label :room_type, "部屋タイプは？"
           %p

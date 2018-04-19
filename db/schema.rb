@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415033132) do
+ActiveRecord::Schema.define(version: 20180416075837) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+  end
+
+  create_table "category_house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "category_id",   null: false
+    t.integer "house_type_id", null: false
+    t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
+    t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
+  end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "category"
@@ -47,8 +58,10 @@ ActiveRecord::Schema.define(version: 20180415033132) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
   end
-  
-ActiveRecord::Schema.define(version: 20180413103845) do
+
+  create_table "house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "type", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false

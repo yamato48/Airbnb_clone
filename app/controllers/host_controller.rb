@@ -1,17 +1,16 @@
 class HostController < ApplicationController
   def index
-    # @houses = House.order('id asc').limit 20
   end
 
   def new
-    @host = "aaa"
+    @host = Host.new
   end
 
   def create
   end
 
   private
-  # def create_params
-  #   params.require(ポストされた配列).permit(:key1, :key2)
-  # end
+  def host_params
+    params.require(:host).permit()
+  end
 end
