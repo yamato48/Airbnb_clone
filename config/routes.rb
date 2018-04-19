@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   resources :hosts do
     collection do
       get 'search'
+      post 'bedrooms'
+      post 'bathrooms'
+      post 'location'
+      post 'amenities'
     end
   end
   resources :categories, only: [] do

@@ -2,7 +2,7 @@
   .left_content
     %h2 掲載するのはどんなお部屋ですか?
     .form_box
-      = form_for @host, url: "/host" do |f|
+      = form_for @host, url: {action: 'bedrooms'} do |f|
         .category
           %p
             = f.label :category, "まずカテゴリを絞りましょう"

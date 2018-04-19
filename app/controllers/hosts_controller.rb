@@ -11,11 +11,28 @@ class HostsController < ApplicationController
   end
 
   def create
-    @host = Host.new(create_params)
+    @host = Host.new(host_params)
+    @host.save
+  end
+
+  def bedrooms
+    @host = Host.new(host_params)
+  end
+
+  def bathrooms
+    @host = Host.new(host_params)
+  end
+
+  def location
+    @host = Host.new(host_params)
+  end
+
+  def amenities
+    @host = Host.new(host_params)
   end
 
   private
-  def create_params
-    params.require(:host).permit(:caregory, :house_type, :size_of_building, :room_type)
+  def host_params
+    params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom).merge(user_id: current_user.id)
   end
 end

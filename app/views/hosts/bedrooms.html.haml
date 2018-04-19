@@ -1,0 +1,22 @@
+.contents
+  .left_content
+    %h2 掲載するのはどんなお部屋ですか?
+    .form_box
+      = form_for @host, url: {action: 'bathrooms'} do |f|
+        .bedroom
+          = f.hidden_field :category
+          = f.hidden_field :house_type
+          = f.hidden_field :size_of_building
+          = f.hidden_field :room_type
+          %p
+            = f.label :capacity, "最大何人まで宿泊可能ですか?"
+          %p
+            = f.text_area :capacity, placeholder: "ほげ"
+          %p
+            = f.label :num_bedroom, "ベッドルームの数は？"
+          %p
+            = f.text_area :num_bedroom, placeholder: "ほげ"
+          %p
+
+        = f.submit "次へ"
+  .right_content

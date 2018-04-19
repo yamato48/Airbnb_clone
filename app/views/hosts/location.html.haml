@@ -1,0 +1,41 @@
+.contents
+  .left_content
+    %h2 掲載するのはどんなお部屋ですか?
+    .form_box
+      = form_for @host, url: {action: 'amenities'} do |f|
+        .location
+          = f.hidden_field :category
+          = f.hidden_field :house_type
+          = f.hidden_field :size_of_building
+          = f.hidden_field :room_type
+          = f.hidden_field :capacity
+          = f.hidden_field :num_bedroom
+          = f.hidden_field :num_of_bath
+
+          %p
+            = f.label :country, "最大何人まで宿泊可能ですか?"
+          %p
+            = f.text_area :country, placeholder: "ほげ"
+          %p
+            = f.label :postal_code, "郵便番号"
+          %p
+            = f.text_area :postal_code, placeholder: "例）123-4567"
+          %p
+            = f.label :state, "都道府県(例: Tokyo)"
+          %p
+            = f.text_area :state, placeholder: "例）東京都"
+          %p
+            = f.label :city, "市区町村(例: Minato-ku)"
+          %p
+            = f.text_area :city, placeholder: "例）中央区"
+          %p
+            = f.label :address_line_1, "所番地(例: 1-1-1 Roppongi)※数字は半角"
+          %p
+            = f.text_area :address_line_1, placeholder: "例）銀座一丁目１−１"
+          %p
+            = f.label :address_line_2, "アパート名、部屋番号(任意)"
+          %p
+            = f.text_area :address_line_2, placeholder: "例）１０１号室"
+
+        = f.submit "次へ"
+  .right_content
