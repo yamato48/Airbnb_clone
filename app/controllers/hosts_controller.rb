@@ -1,5 +1,6 @@
 class HostsController < ApplicationController
   def index
+    @user = current_user
     # @houses = House.order('id asc').limit 20
   end
 

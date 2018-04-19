@@ -95,3 +95,27 @@ footer {
     }
   }
 }
+.btn-group{
+  height: 70px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.dropdown-menu {
+  height: 300px;
+  width: 250px;
+  // right: 0;
+  overflow: visible;
+  background-color: #ffffff;
+  border: 1px solid #DBDBDB;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: absolute; 
+
+  .info {
+  height: 50px;
+  }
+}
+
+
+
+ 

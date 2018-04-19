@@ -34,10 +34,24 @@
                 = link_to "クーポン"
               %li
                 = link_to "ヘルプ"
-              %li
-                = link_to "ログアウト", destroy_user_session_path,method: :delete
-              %li
-                = image_tag "", alt: "user_photo"
+              .btn-group.drop-left
+                %button.btn.btn-default{type: "button"}
+                  = current_user
+                %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", type: "button"}
+                %span.caret1
+                %ul.dropdown-menu{role: "menu"}
+                  %li.info{role: "presentation"}
+                    %a{href: "/user/:id/edit", role: "menuitem"} プロフィール編集
+                  %li.info{role: "presentation"}
+                    %a{href: "#", :role => "menuitem", tabindex: "-1"} 友達を編集する
+                  %li.info{role: "presentation"}
+                    %a{href: "#", role: "menuitem", tabindex: "-1"} アカウントを設定する
+                  %li.info{role: "presentation"}
+                    %a{href: "#", role: "menuitem", tabindex: "-1"} ガイドブック
+                  %li.info{role: "presentation"}
+                    %a{href: "#", role: "menuitem", tabindex: "-1"} Airbnb法人プログラム
+                  %li.info{role: "presentation"}
+                    %a{href: "/users/sign_out", role: "menuitem", tabindex: "-1"} ログアウト
             - else
               %li
                 = link_to "ホストをはじめる"
