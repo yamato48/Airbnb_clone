@@ -6,8 +6,10 @@
         .bedroom
           = f.hidden_field :category
           = f.hidden_field :house_type
-          = f.hidden_field :size_of_building
           = f.hidden_field :room_type
+          = @host.category
+          = @host.house_type
+          = @host.room_type
           %p
             = f.label :capacity, "最大何人まで宿泊可能ですか?"
           %p
