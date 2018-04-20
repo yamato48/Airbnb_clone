@@ -16,4 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore AWS credential info
 config/secrets.yml
+
+# Ignore mysql environment variable
+config/database.yml
