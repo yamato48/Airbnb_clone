@@ -1,12 +1,12 @@
 .contents
   .left_content
-    %h2 掲載するのはどんなお部屋ですか?
+    %h2 ご用意するアメニティ・設備は?
     .form_box
       = form_for @host do |f|
         .location
           = f.hidden_field :category
           = f.hidden_field :house_type
-          = f.hidden_field :size_of_building
+          -# = f.hidden_field :size_of_building
           = f.hidden_field :room_type
           = f.hidden_field :capacity
           = f.hidden_field :num_bedroom
@@ -18,10 +18,9 @@
           = f.hidden_field :address_line_1
           = f.hidden_field :address_line_2
 
-          %p
-            = f.label :address_line_2, "次に建物タイプを選んでください"
-          %p
-            = f.text_area :address_line_2, placeholder: "例）１０１号室"
+    %span 安全対策のアメニティ
+    .form_box
+      = form_for @host do |f|
 
         = f.submit "次へ"
   .right_content
