@@ -1,13 +1,12 @@
 class HostsController < ApplicationController
+  before_action :set_user
+
   def index
-    @user = current_user
     # @houses = House.order('id asc').limit 20
   end
 
   def new
     @host = Host.new
-    @user = current_user
-    # @house_types = House_type.all
   end
 
   def create
@@ -34,5 +33,9 @@ class HostsController < ApplicationController
   private
   def host_params
     params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom).merge(user_id: current_user.id)
+  end
+
+  def set_user
+    @user = current_user
   end
 end
