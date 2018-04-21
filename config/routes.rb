@@ -9,15 +9,24 @@ Rails.application.routes.draw do
   resources :hosts do
     collection do
       get 'search'
+      get 'room'
       post 'bedrooms'
       post 'bathrooms'
       post 'location'
       post 'amenities'
     end
     member do
+    # ステップ１
+      get 'rooms'
+      post 'bedrooms'
+      post 'bathrooms'
+      post 'location'
+      post 'amenities'
+    # ステップ２
       get 'photos'
       post 'description'
       post 'title'
+    # ステップ３
       get 'guest-requirements'
       post 'house-rules'
       post 'review-guest-requirements'
