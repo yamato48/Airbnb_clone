@@ -1,0 +1,25 @@
+.col-md-7
+  .left-col-content
+    .title
+      %h2 だいぶはかどりましたね、#{@user.first_name}さん！
+      %h5 さあ、今度はリスティング掲載用にお部屋の詳しい説明を書きましょう。
+    .step
+      %h4 ベッド数、バスルーム数、アメニティなど
+      = link_to "変更する", rooms_host_path
+      %hr
+    .step
+      ステップ2
+      %h3 次に特徴をPR
+      写真、概要、タイトル
+      .continue-btn
+        = link_to "続行", photos_host_path
+      %hr
+    .step
+      ステップ3
+      %h3 予約準備を整えてフィニッシュ！
+      予約受付設定、カレンダー、料金
+      .continue-btn
+        = link_to "続行", guest_requirements_host_path
+.col-md-5.hidden-xs
+  .right-col-content
+    = image_tag "host/show_migi.png", height: "700px"
