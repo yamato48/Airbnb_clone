@@ -12,7 +12,7 @@
           %p
             = f.label :num_of_bath, "バスルーム数は？"
           %p
-            = f.number_field :num_of_bath
+            = f.text_field :num_of_bath, class: "bathroom_count", value: "1"
           .btn.btn-success.btn-sm
             = f.submit "次へ", class: "next"
   .right_content
