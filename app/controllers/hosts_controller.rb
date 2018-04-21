@@ -66,7 +66,7 @@ class HostsController < ApplicationController
   def price
   end
 
-  def addtional_pricing
+  def additional_pricing
   end
 
   def local_law

@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       post 'availability-questions'
       post 'calendar'
       post 'price'
-      post 'addtional-pricing'
+      post 'additional-pricing'
       get 'local-law'
     end
   end
