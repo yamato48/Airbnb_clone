@@ -98,7 +98,7 @@ input[type="button"]{
     }
     .form_box {
       padding: 30px;
-      .category,.room {
+      .category, .room, .bedroom, .bathroom, .location{
         margin-top: 23px;
         p {
           color: #888;
@@ -145,3 +145,21 @@ input[type="button"]{
   background-color: #5cb85c;
   border: none;
 }
+// 全フォームに適応させる部分
+// select {
+//   color: #333;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   -webkit-border-radius: 3px;
+//   -moz-border-radius: 3px;
+//   border-radius: 3px;
+//   background-color: #FFF;
+//   height: 50px;
+//   width:  320px;
+//   text-indent: 1em;
+// }
+//
+// label {
+//   display: block;
+// }

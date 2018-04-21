@@ -15,6 +15,12 @@
           %p
             = f.text_field :capacity, class: "capacity_count", value: "1"
           %p
+            = f.label :is_this_room_using_guest_only, "ゲストが使用できるベッドルーム数は?"
+          %p
+            -# = f.select :is_this_room_using_guest_only, class: "guest_bedrooms"
+            -# = f.select :house_type, Host.house_types_i18n.invert, prompt: "建物タイプを選択"
+            = f.select :is_this_room_using_guest_only, Host.is_this_room_using_guest_onlies_i18n.invert
+          %p
             = f.label :num_bedroom, "ベッド数"
           %p
             = f.text_field :num_bedroom, class: "bedroom_count", value: "1"
