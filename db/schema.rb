@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20180421112839) do
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
     t.integer  "user_id"
-    t.integer  "amenity"
     t.integer  "currency"
     t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
