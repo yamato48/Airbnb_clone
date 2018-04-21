@@ -6,17 +6,17 @@
         .sidenavi
           %ul.sidenav-list
             %li.sidenav-item
-              %a{ href: '/users/:id/edit'}プロフィールを編集
+              = link_to "プロフィールを編集", "/users/#{@user.id}/edit"
             %li.sidenav-item-btm
-              %a{ href: ''}写真
+              = link_to "写真"
             %li.sidenav-item-btm
-              %a{ href: 'edit_varification'}信頼＆認証確認
+              = link_to "信頼＆認証確認", "/users/#{@user.id}/edit_varification"
             %li.sidenav-item-btm
-              %a{ href: ''}レビュー
+              = link_to "レビュー"
             %li.sidenav-item-btm
-              %a{ href: ''}紹介文
+              = link_to "紹介文"
         .btn.btn-block.space-top-4
-          %a{ href: '/users/:id/show'}プロフィールを見る
+          = link_to "プロフィールを見る", "/users/#{@user.id}/show"
       .col-md-9#dashboard-content
         =form_for(current_user) do |f|
           .panel.space-4

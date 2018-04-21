@@ -13,12 +13,11 @@
           %p
             = f.label :capacity, "最大何人まで宿泊可能ですか?"
           %p
-            = f.text_area :capacity, placeholder: "ほげ"
+            = f.number_field :capacity
           %p
             = f.label :num_bedroom, "ベッドルームの数は？"
           %p
-            = f.text_area :num_bedroom, placeholder: "ほげ"
-          %p
-
-        = f.submit "次へ"
+            = f.number_field :num_bedroom
+          .btn.btn-success.btn-sm
+            = f.submit "次へ", class: "next"
   .right_content
