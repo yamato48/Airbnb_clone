@@ -34,7 +34,7 @@ h3 {
   }
 }
 
-/* hosts#new ========================================== */
+/* hosts#room========================================== */
 .contents {
   width: 800px;
   margin: 0 auto;
@@ -93,3 +93,44 @@ h3 {
   background-color: #5cb85c;
   border: none;
 }
+
+/* hosts#show ========================================== */
+.left-col-content {
+  margin: 58px 93.5px 100px 100px;
+  max-width: 470px;
+  font-size: 16px;
+  color: #767676;
+  font-weight: normal;
+  a {
+    color: $green;
+  }
+  h3 {
+    font-weight: normal;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  .title {
+    margin-bottom: 30px;
+  }
+  hr {
+    border-top: 1px solid $line-gray;
+    margin: 30px 0;
+  }
+  .continue-btn{
+    margin-top: 12px;
+  }
+  .continue-btn a{
+    padding: 8px 16px;
+    background-color: $green;
+    border: 1px solid $green;
+    border-radius: 2px;
+    min-width: 50px;
+    color: $white;
+    font-size: 15px;
+  }
+}
+.right-col-content {
+  margin-left: -50px;
+}
+

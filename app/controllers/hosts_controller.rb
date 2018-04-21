@@ -4,7 +4,23 @@ class HostsController < ApplicationController
     # @houses = House.order('id asc').limit 20
   end
 
-  def new
+  def rooms
+    @host = Host.new
+  end
+
+  def bedrooms
+    @host = Host.new
+  end
+
+  def bathrooms
+    @host = Host.new
+  end
+
+  def location
+    @host = Host.new
+  end
+
+  def amenities
     @host = Host.new
   end
 
@@ -13,20 +29,47 @@ class HostsController < ApplicationController
     @host.save
   end
 
-  def bedrooms
-    @host = Host.new(host_params)
+  def show
+    @host = Host.find(params[:id])
   end
 
-  def bathrooms
-    @host = Host.new(host_params)
+  def photos
   end
 
-  def location
-    @host = Host.new(host_params)
+  def description
   end
 
-  def amenities
-    @host = Host.new(host_params)
+  def title
+  end
+
+  def guest_requirements
+  end
+
+  def house_rules
+  end
+
+  def review_guest_requirements
+  end
+
+  def review_how_guests_book
+  end
+
+  def keep_calendar_up_to_date
+  end
+
+  def availability_questions
+  end
+
+  def calendar
+  end
+
+  def price
+  end
+
+  def addtional_pricing
+  end
+
+  def local_law
   end
 
   private
