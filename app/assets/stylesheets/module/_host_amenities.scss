@@ -1,0 +1,10 @@
+.left_content {
+  float: left;
+}
+
+.right_content {
+  float: right;
+  &__advice {
+    border: 1px solid $line-gray;
+  }
+}
