@@ -74,7 +74,7 @@ class HostsController < ApplicationController
 
   private
   def host_params
-    params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom).merge(user_id: current_user.id)
+    params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom, :num_of_bath, :country, :postal_code, :state, :city, :address_line_1, :address_line_2,).merge(user_id: current_user.id)
   end
 
   def set_user
