@@ -12,29 +12,29 @@
           = f.hidden_field :num_of_bath
 
           %p
-            = f.label :country, "最大何人まで宿泊可能ですか?"
+            = f.label :country, "国"
           %p
-            = f.text_area :country, placeholder: "ほげ"
+            = f.text_field :country, placeholder: "例) 日本", class: "form-large" 
           %p
             = f.label :postal_code, "郵便番号"
           %p
-            = f.text_area :postal_code, placeholder: "例）123-4567"
+            = f.number_field :postal_code, placeholder: "例）123-4567", class: "form-large"
           %p
             = f.label :state, "都道府県(例: Tokyo)"
           %p
-            = f.text_area :state, placeholder: "例）東京都"
+            = f.text_field :state, placeholder: "例）東京都", class: "form-large"
           %p
             = f.label :city, "市区町村(例: Minato-ku)"
           %p
-            = f.text_area :city, placeholder: "例）中央区"
+            = f.text_field :city, placeholder: "例）中央区", class: "form-large"
           %p
             = f.label :address_line_1, "所番地(例: 1-1-1 Roppongi)※数字は半角"
           %p
-            = f.text_area :address_line_1, placeholder: "例）銀座一丁目１−１"
+            = f.text_field :address_line_1, placeholder: "例）銀座一丁目１−１", class: "form-large"
           %p
             = f.label :address_line_2, "アパート名、部屋番号(任意)"
           %p
-            = f.text_area :address_line_2, placeholder: "例）１０１号室"
-
-        = f.submit "次へ"
+            = f.text_field :address_line_2, placeholder: "例）１０１号室", class: "form-large"
+          .btn.btn-success.btn-sm
+            = f.submit "次へ", class: "next"
   .right_content

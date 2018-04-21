@@ -20,7 +20,7 @@
           %p
             = f.label :address_line_2, "次に建物タイプを選んでください"
           %p
-            = f.text_area :address_line_2, placeholder: "例）１０１号室"
-
-        = f.submit "次へ"
+            = f.text_field :address_line_2, placeholder: "例）１０１号室"
+          .btn.btn-success.btn-sm
+            = f.submit "次へ", class: "next"
   .right_content

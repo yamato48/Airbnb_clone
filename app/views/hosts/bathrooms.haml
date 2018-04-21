@@ -10,9 +10,9 @@
           = f.hidden_field :capacity
           = f.hidden_field :num_bedroom
           %p
-            = f.label :num_of_bath, "最大何人まで宿泊可能ですか?"
+            = f.label :num_of_bath, "バスルーム数は？"
           %p
-            = f.text_area :num_of_bath, placeholder: "ほげ"
-
-        = f.submit "次へ"
+            = f.number_field :num_of_bath
+          .btn.btn-success.btn-sm
+            = f.submit "次へ", class: "next"
   .right_content
