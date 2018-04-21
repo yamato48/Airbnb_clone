@@ -27,6 +27,11 @@ class HostsController < ApplicationController
   def create
     @host = Host.new(host_params)
     @host.save
+    if @host.save
+      redirect_to host_path(id: @user.id)
+    else
+      render :amenities
+    end
   end
 
   def show
