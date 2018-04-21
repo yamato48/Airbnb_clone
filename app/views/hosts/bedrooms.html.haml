@@ -14,6 +14,10 @@
             = f.label :capacity, "定員"
           %p
             = f.text_field :capacity, class: "capacity_count", value: "1"
+
+            = f.label :is_this_room_using_guest_only, "ゲストが使用できるベッドルーム数は?"
+          %p
+            = f.select :is_this_room_using_guest_only, Host.is_this_room_using_guest_onlies_i18n.invert
           %p
             = f.label :num_bedroom, "ベッド数"
           %p
