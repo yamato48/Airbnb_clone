@@ -1,7 +1,58 @@
+@mixin form_text_filed() {
+  margin-top: 18px;
+  margin-bottom: -10px;
+  font-weight: normal;
+  font-size: 1.3em;
+}
+
+@mixin form_text() {
+  height: 30px;
+  width: 50px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+@mixin form_btn() {
+  display: inline-block;
+  text-decoration: none;
+  background: white;
+  color: #008489;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border-color: #008489;
+  text-align: center;
+  vertical-align: middle;
+  outline: none;
+  overflow: hidden;
+  transition: .4s;
+}
+
 /* hosts#index ========================================== */
 h3 {
   font-weight: bold;
 }
+// ベッドルームのボタン
+.bedroom_count {
+  @include form_text;
+}
+
+.bathroom_count {
+  @include form_text;
+}
+
+.capacity_count {
+  @include form_text;
+}
+
+input[type="button"]{
+  @include form_btn;
+}
+
 
 .introduction_house {
   float:left;
@@ -74,6 +125,7 @@ h3 {
           // background-size:20px 10px;
           // background-position: right center;
         }
+
       }
     }
   }

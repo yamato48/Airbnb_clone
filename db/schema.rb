@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20180420060620) do
   end
 
   create_table "category_house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "category_id",   null: false
-    t.integer "house_type_id", null: false
+    t.integer "category_id"
+    t.integer "house_type_id"
     t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
     t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
   end
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20180420060620) do
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "category"
     t.string   "house_type"
-    t.string   "room_type"
-    t.string   "is_this_room_using_guest_only"
+    t.integer  "room_type"
+    t.integer  "size_of_building"
+    t.integer  "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -95,5 +96,7 @@ ActiveRecord::Schema.define(version: 20180420060620) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "category_house_types", "categories"
+  add_foreign_key "category_house_types", "house_types"
   add_foreign_key "hosts", "users"
 end
