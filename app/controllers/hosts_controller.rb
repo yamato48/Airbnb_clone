@@ -6,6 +6,12 @@ class HostsController < ApplicationController
 
   def rooms
     @host = Host.new
+    @category = session[:category]
+  end
+
+  def session_rec
+    session[:category] = params[:category]
+    render plain: 'セッションを保存しました。'
   end
 
   def bedrooms
