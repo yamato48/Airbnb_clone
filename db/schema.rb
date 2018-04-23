@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423093502) do
+ActiveRecord::Schema.define(version: 20180423103840) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "necessity"
@@ -91,6 +91,17 @@ ActiveRecord::Schema.define(version: 20180423093502) do
     t.integer "status"
     t.integer "user_id"
     t.index ["user_id"], name: "index_room_images_on_user_id", using: :btree
+  end
+
+  create_table "safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "smoke_sensor"
+    t.string   "hochiki"
+    t.string   "first_aid_kit"
+    t.string   "emergency_info"
+    t.string   "fire_extinguisher"
+    t.string   "private_room"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
