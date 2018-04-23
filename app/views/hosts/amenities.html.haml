@@ -26,25 +26,97 @@
         = "@user_address_line_1: #{@user_address_line_1}"
       %p
         = "@user_address_line_2: #{@user_address_line_2}"
-      = form_for @host do |f|
-        .location
-          = f.hidden_field :category
-          = f.hidden_field :house_type
-          -# = f.hidden_field :size_of_building
-          = f.hidden_field :room_type
-          = f.hidden_field :capacity
-          = f.hidden_field :num_bedroom
-          = f.hidden_field :num_of_bath
-          = f.hidden_field :country
-          = f.hidden_field :postal_code
-          = f.hidden_field :state
-          = f.hidden_field :city
-          = f.hidden_field :address_line_1
-          = f.hidden_field :address_line_2
 
-    %span 安全対策のアメニティ
-    .form_box
       = form_for @host do |f|
 
-        = f.submit "次へ"
+        %p
+          =f.label :necessity, "必需品 タオル、シーツ、石鹸、トイレットペーパー、枕"
+        %p
+          =f.check_box :necessity
+        %p
+          =f.label :wifi, "Wi-Fi"
+        %p
+          =f.check_box :wifi
+        %p
+          =f.label :shampoo, "シャンプー"
+        %p
+          =f.check_box :shampoo
+        %p
+          =f.label :closet, "クローゼット/タンス"
+        %p
+          =f.check_box :closet
+        %p
+          =f.label :tv, "テレビ"
+        %p
+          =f.check_box :tv
+        %p
+          =f.label :air_con, "エアコン"
+        %p
+          =f.check_box :air_con
+        %p
+          =f.label :breakfast, "朝食、コーヒー、お茶"
+        %p
+          =f.check_box :breakfast
+        %p
+          =f.label :desk, "机・ワークスペース"
+        %p
+          =f.check_box :desk
+        %p
+          =f.label :heater, "暖炉・薪ストーブ・囲炉裏"
+        %p
+          =f.check_box :heater
+        %p
+          =f.label :steam_iron, "アイロン"
+        %p
+          =f.check_box :steam_iron
+        %p
+          =f.label :hair_dryer, "ヘアドライヤー"
+        %p
+          =f.check_box :hair_dryer
+        %p
+          =f.label :pet, "ペットOK"
+        %p
+          =f.check_box :pet
+        %p
+          =f.label :entrance, "専用の玄関"
+        %p
+          =f.check_box :entrance
+
+        %span 安全対策のアメニティ
+
+        %p
+          =f.label :smoke_sensor, "煙感知器 地域の法令をお確かめください。各部屋に煙検知器設置を義務づけている地域もあります。"
+        %p
+          =f.check_box :smoke_sensor
+        %p
+          =f.label :hochiki, "一酸化炭素検知器 地域の法令をお確かめください。各部屋に一酸化炭素検知器設置を義務づけている地域もあります。"
+        %p
+          =f.check_box :hochiki
+        %p
+          =f.label :first_aid_kit, "応急手当セット"
+        %p
+          =f.check_box :first_aid_kit
+        %p
+          =f.label :emergency_info, "防災カード 緊急連絡先と避難情報は掲示しておきましょう。"
+        %p
+          =f.check_box :emergency_info
+        %p
+          =f.label :fire_extinguisher, "消火器"
+        %p
+          =f.check_box :fire_extinguisher
+        %p
+          =f.label :private_room, "寝室は鍵付きドア 安全性とプライバシーが保たれる鍵付きの個室のことです。"
+        %p
+          =f.check_box :private_room
+
+        .btn.btn-success.btn-sm
+          = f.submit "次へ", class: "next"
+
   .right_content
+    .right_content__advice
+      生活必需品を揃えておくと、ゲストも自分の家のようにくつろげます。
+      %br
+      %br
+      朝食を用意する方もいれば、コーヒーやお茶だけにする方も。どれも義
+      務というわけではないけれど、あると温かいおもてなしの気持ちが伝わ
+      るアイテムです。
