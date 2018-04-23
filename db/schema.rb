@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423110313) do
+ActiveRecord::Schema.define(version: 20180423111116) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "necessity"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20180423110313) do
     t.datetime "updated_at", null: false
     t.index ["amenity_id"], name: "index_host_amenities_on_amenity_id", using: :btree
     t.index ["host_id"], name: "index_host_amenities_on_host_id", using: :btree
+  end
+
+  create_table "host_safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "host_id",           null: false
+    t.integer  "safety_amenity_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["host_id"], name: "index_host_safety_amenities_on_host_id", using: :btree
+    t.index ["safety_amenity_id"], name: "index_host_safety_amenities_on_safety_amenity_id", using: :btree
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -146,6 +155,8 @@ ActiveRecord::Schema.define(version: 20180423110313) do
   add_foreign_key "category_house_types", "house_types"
   add_foreign_key "host_amenities", "amenities"
   add_foreign_key "host_amenities", "hosts"
+  add_foreign_key "host_safety_amenities", "hosts"
+  add_foreign_key "host_safety_amenities", "safety_amenities"
   add_foreign_key "hosts", "users"
   add_foreign_key "room_images", "users"
 end
