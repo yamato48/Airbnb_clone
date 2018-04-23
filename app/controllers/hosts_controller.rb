@@ -28,7 +28,7 @@ class HostsController < ApplicationController
     @host = Host.new(host_params)
     @host.save
     if @host.save
-      redirect_to host_path(id: @user.id)
+      redirect_to host_path(id: @host.id)
     else
       render :amenities
     end
