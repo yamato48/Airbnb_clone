@@ -23,7 +23,7 @@
               %li
                 = link_to "部屋を掲載"
               %li
-                = link_to "ホスト", new_host_path
+                = link_to "ホスト", rooms_host_path
               %li
                 = link_to "お気に入り"
               %li
@@ -34,24 +34,24 @@
                 = link_to "クーポン"
               %li
                 = link_to "ヘルプ"
-              .btn-group.drop-left
-                %button.btn.btn-default{type: "button"}
-                  = current_user
+              .btn-group.drop-left.btn-sm
+                %button.btn.btn-default.btn-sm{type: "button"}
+                  = "#{@user.first_name}さん"
                 %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", type: "button"}
                 %span.caret1
                 %ul.dropdown-menu{role: "menu"}
                   %li.info{role: "presentation"}
-                    %a{href: "/user/:id/edit", role: "menuitem"} プロフィール編集
+                    = link_to "プロフィール編集", "/users/#{@user.id}/edit", method: :get, role: "menuitem",tabindex: "-1"
                   %li.info{role: "presentation"}
-                    %a{href: "#", :role => "menuitem", tabindex: "-1"} 友達を編集する
+                    = link_to "友達を編集する", role: "menuitem", tabindex: "-1"
                   %li.info{role: "presentation"}
-                    %a{href: "#", role: "menuitem", tabindex: "-1"} アカウントを設定する
+                    = link_to "アカウントを設定する", role: "menuitem", tabindex: "-1"
                   %li.info{role: "presentation"}
-                    %a{href: "#", role: "menuitem", tabindex: "-1"} ガイドブック
+                    = link_to "ガイドブック", role: "menuitem", tabindex: "-1"
                   %li.info{role: "presentation"}
-                    %a{href: "#", role: "menuitem", tabindex: "-1"} Airbnb法人プログラム
+                    = link_to "Airbnb法人プログラム", "menuitem", tabindex: "-1"
                   %li.info{role: "presentation"}
-                    %a{href: "/users/sign_out", role: "menuitem", tabindex: "-1"} ログアウト
+                    = link_to "ログアウト", destroy_user_session_path, method: :delete, role: "menuite", tabindex: "-1"
             - else
               %li
                 = link_to "ホストをはじめる"

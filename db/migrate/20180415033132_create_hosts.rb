@@ -1,7 +1,6 @@
 class CreateHosts < ActiveRecord::Migration[5.0]
   def change
     create_table :hosts do |t|
-      t.references    :user, foreign_key: true
       t.integer       :category
       t.integer       :house_type
       t.integer       :room_type

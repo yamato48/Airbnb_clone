@@ -26,5 +26,6 @@
             = f.label :room_type, "部屋タイプは？"
           %p
             = f.select :room_type, Host.room_types_i18n.invert
-        = f.submit "送信"
+          .btn.btn-success.btn-sm
+            = f.submit "送信", class: "next"
   .right_content

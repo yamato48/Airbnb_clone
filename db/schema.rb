@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419062544) do
+ActiveRecord::Schema.define(version: 20180421112839) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -57,11 +57,21 @@ ActiveRecord::Schema.define(version: 20180419062544) do
     t.string   "profile_image"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.integer  "user_id"
+    t.integer  "currency"
+    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
   create_table "house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "type",                            null: false
     t.text   "house_discription", limit: 65535
+  end
+
+  create_table "room_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "content"
+    t.integer "status"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_room_images_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -87,8 +97,12 @@ ActiveRecord::Schema.define(version: 20180419062544) do
     t.string   "identification"
     t.string   "address"
     t.string   "profile"
+    t.string   "school"
+    t.string   "workplace"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "hosts", "users"
+  add_foreign_key "room_images", "users"
 end
