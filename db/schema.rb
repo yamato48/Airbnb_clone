@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421112839) do
+ActiveRecord::Schema.define(version: 20180423093502) do
+
+  create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "necessity"
+    t.string   "wifi"
+    t.string   "shampoo"
+    t.string   "closet"
+    t.string   "tv"
+    t.string   "air_con"
+    t.string   "breakfast"
+    t.string   "desk"
+    t.string   "heater"
+    t.string   "steam_iron"
+    t.string   "hair_dryer"
+    t.string   "pet"
+    t.string   "entrance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
