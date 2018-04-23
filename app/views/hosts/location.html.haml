@@ -2,7 +2,31 @@
   .left_content
     %h2 掲載するのはどんなお部屋ですか?
     .form_box
-      = form_for @host, url: {action: 'amenities'} do |f|
+      %p
+        = "@user_category: #{@user_category}"
+      %p
+        = "@user_house_type: #{@user_house_type}"
+      %p
+        = "@user_room_type: #{@user_room_type}"
+      %p
+        = "@user_capacity: #{@user_capacity}"
+      %p
+        = "@user_num_bedroom: #{@user_num_bedroom}"
+      %p
+        = "@user_num_of_bath #{@user_num_of_bath}"
+      %p
+        = "@user_country: #{@user_country}"
+      %p
+        = "@user_postal_code: #{@user_postal_code}"
+      %p
+        = "@user_state: #{@user_state}"
+      %p
+        = "@user_city: #{@user_city}"
+      %p
+        = "@user_address_line_1: #{@user_address_line_1}"
+      %p
+        = "@user_address_line_2: #{@user_address_line_2}"
+      = form_for @host, url: amenities_hosts_path do |f|
         .location
           = f.hidden_field :category
           = f.hidden_field :house_type
@@ -14,7 +38,7 @@
           %p
             = f.label :country, "国"
           %p
-            = f.text_field :country, placeholder: "例) 日本", class: "form-large" 
+            = f.text_field :country, placeholder: "例) 日本", class: "form-large"
           %p
             = f.label :postal_code, "郵便番号"
           %p
