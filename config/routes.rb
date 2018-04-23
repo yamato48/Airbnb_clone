@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :hosts do
     collection do
       get 'search'
-      get 'room'
+      get 'rooms'
       post 'bedrooms'
       post 'bathrooms'
       post 'location'
