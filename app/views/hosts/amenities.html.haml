@@ -1,5 +1,5 @@
 .contents
-  .left_content
+  .left_content.col-lg-7.col-md-5
     %h2 ご用意するアメニティ・設備は?
     .form_box
       %p
@@ -27,7 +27,7 @@
       %p
         = "@user_address_line_2: #{@user_address_line_2}"
 
-      = form_for @host do |f|
+      = form_for "host_path(#{@amenity}, #{@safety_amenity})", html: {method: "post"} do |f|
 
         %p
           =f.label :necessity, "必需品 タオル、シーツ、石鹸、トイレットペーパー、枕"
@@ -110,9 +110,9 @@
           =f.check_box :private_room
 
         .btn.btn-success.btn-sm
-          = f.submit "送信", class: "next"
+          = f.submit "完了"
 
-  .right_content
+  .right_content.col-lg-7.col-md-5
     .right_content__advice
       生活必需品を揃えておくと、ゲストも自分の家のようにくつろげます。
       %br
