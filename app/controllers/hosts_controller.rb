@@ -37,7 +37,22 @@ class HostsController < ApplicationController
   end
 
   def create
-    @host = Host.new(host_params)
+    set_sessions
+    @host = Host.new( \
+      user_id: @user,\
+      category: @user_category, \
+      house_type: @user_house_type, \
+      room_type: @user_room_type, \
+      capacity: @user_capacity, \
+      num_bedroom: @user_num_bedroom, \
+      num_of_bath: @user_num_of_bath, \
+      country: @user_country, \
+      postal_code: @user_postal_code, \
+      state: @user_state, \
+      city: @user_city, \
+      address_line_1: @user_address_line_1, \
+      address_line_2: @user_address_line_2 \
+      )
     @host.save
     if @host.save
       redirect_to host_path(id: @host.id)
