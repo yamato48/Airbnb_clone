@@ -1,15 +1,37 @@
 $(function() {
-  function buildOptions(houseTypes, selectElement) {
+  function buildHTML(houseTypes, selectElement) {
     selectElement.html('<option value>建物タイプを選択</option>');
-    $.each(houseTypes, function() {
+    $(houseTypes).each(function() {
       var categoryId = $('.select-category').find('option:selected').val();
       var discriptionPath =  '/categories/' + categoryId + '/house_types/' + this.id;
-      var optionElement = $('<option>').val(this.id).text(this.type).attr('data-discription-path', discriptionPath);
+      var optionElement = $('<option>').val(this.type).text(this.type).attr('data-discription-path', discriptionPath);
       selectElement.append(optionElement);
     });
   };
 
-  function getSelectedOptionData(){
+  function getHouseTypeOptions() {
+    var houseTypePath = $(this).find('option:selected').data('houseTypePath');
+    var selectHouseType = $(this).closest('form').find('.select-house-type');
+    if (houseTypePath != null) {
+      $.ajax({
+        url: houseTypePath,
+        type: "GET",
+      })
+      .done(function(houseTypes) {
+        buildHTML(houseTypes, selectHouseType)
+      })
+      .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+        console.error("Error occurred in replaceChildrenOptions");
+        console.log("XMLHttpRequest: " + XMLHttpRequest.status);
+        console.log("textStatus: " + textStatus);
+        return console.log("errorThrown: " + errorThrown);
+      })
+    } else {
+      buildHTML([], selectHouseType);
+    };
+  };
+
+  function getDiscriptions(){
     houseTypeId = $(this).find('option:selected').val();
     discriptionPath = $(this).find('option:selected').data('discriptionPath');
     if (discriptionPath != null) {
@@ -32,27 +54,6 @@ $(function() {
     };
   };
 
-  $('.select-category').change(function() {
-    var houseTypeOptionPath = $(this).find('option:selected').data('houseTypePath');
-    var selectHouseType = $(this).closest('form').find('.select-house-type');
-    if (houseTypeOptionPath != null) {
-      $.ajax({
-        url: houseTypeOptionPath,
-        type: "GET",
-      })
-      .done(function(houseTypes) {
-        buildOptions(houseTypes, selectHouseType)
-      })
-      .fail(function(XMLHttpRequest, textStatus, errorThrown) {
-        console.error("Error occurred in replaceChildrenOptions");
-        console.log("XMLHttpRequest: " + XMLHttpRequest.status);
-        console.log("textStatus: " + textStatus);
-        return console.log("errorThrown: " + errorThrown);
-      })
-    } else {
-      buildOptions([], selectHouseType);
-    };
-  });
-
-  $('.select-house-type').change(getSelectedOptionData);
+  $('.select-category').change(getHouseTypeOptions);
+  $('.select-house-type').change(getDiscriptions);
 });

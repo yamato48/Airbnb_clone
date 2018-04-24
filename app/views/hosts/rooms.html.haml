@@ -31,15 +31,12 @@
           %p
             = f.label :category, "まずカテゴリを絞りましょう"
           %p
-            - category_options = Category.order(:id).map { |c| [c.name, c.id, data: { house_type_path: category_house_types_path(c) }] }
+            - category_options = Category.order(:id).map { |c| [c.name, c.name, data: { house_type_path: category_house_types_path(c) }] }
             = f.select :category, category_options, { include_blank: "1つ選択してください" } , class: 'select-category', selected: @user_category
           %p
             = f.label :house_type, "次に建物タイプを選んでください"
           %p
-            - category = @host.category
-            - house_types = category.try(:category_house_types).try(:house_types) || []
-            - house_type_options = house_types.map { |c| [c.name, c.id] }
-            = f.select :house_type, house_type_options,  { include_blank: "建物タイプを選択" } , class: 'select-house-type'
+            = f.select :house_type, [],  { include_blank: "建物タイプを選択" } , class: 'select-house-type'
           %p.house-discription
         .room
           / %p
