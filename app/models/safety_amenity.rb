@@ -1,4 +1,4 @@
 class SafetyAmenity < ApplicationRecord
-  has_many :house, through: :houses__safety_amenities
-  has_many :houses__safety_amenities
+  has_many :hosts, through: :host_safety_amenities
+  has_many :host_safety_amenities
 end
