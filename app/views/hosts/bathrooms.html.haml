@@ -1,6 +1,6 @@
 .contents
   .left_content
-    %h2 最大何人まで宿泊可能ですか?
+    %h2 掲載するのはどんなお部屋ですか?
     .form_box
       %p
         = "@user_category: #{@user_category}"
@@ -26,25 +26,17 @@
         = "@user_address_line_1: #{@user_address_line_1}"
       %p
         = "@user_address_line_2: #{@user_address_line_2}"
-      = form_for @host, url: bathrooms_hosts_path do |f|
-        .bedroom
+      = form_for @host, url: {action: 'location'} do |f|
+        .bathroom
           = f.hidden_field :category
           = f.hidden_field :house_type
           = f.hidden_field :room_type
-          -# = @host.category
-          -# = @host.house_type
-          -# = @host.room_type
+          = f.hidden_field :capacity
+          = f.hidden_field :num_bedroom
           %p
-            = f.label :capacity, "定員"
+            = f.label :num_of_bath, "バスルーム数は？"
           %p
-            = f.text_field :capacity, class: "capacity_count", value: "1"
-            = f.label :is_this_room_using_guest_only, "ゲストが使用できるベッドルーム数は?"
-          %p
-            = f.select :is_this_room_using_guest_only, Host.is_this_room_using_guest_onlies_i18n.invert
-          %p
-            = f.label :num_bedroom, "ベッド数"
-          %p
-            = f.text_field :num_bedroom, class: "bedroom_count", value: "1"
+            = f.text_field :num_of_bath, class: "bathroom_count", value: "1"
           .btn.btn-success.btn-sm
             = f.submit "次へ", class: "next"
   .right_content
