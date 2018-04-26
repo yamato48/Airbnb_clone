@@ -1,7 +1,23 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:rooms, :bedrooms, :bathrooms, :location, :amenities]
   before_action :set_user
-  before_action :set_host_id, only: [:show, :photos, :description, :title, :guest_requirements, :house_rules, :review_guest_requirements, :review_how_guests_book, :keep_calendar_up_to_date, :availability_questions, :calendar, :price, :additional_pricing, :local_law, :update]
+  before_action :set_host_id, only: [ \
+    :show, \
+    :photos, \
+    :description, \
+    :title, \
+    :guest_requirements, \
+    :house_rules, \
+    :review_guest_requirements, \
+    :review_how_guests_book, \
+    :keep_calendar_up_to_date, \
+    :availability_questions, \
+    :calendar, \
+    :price, \
+    :additional_pricing, \
+    :local_law, \
+    :update \
+    ]
 
   def index
   end
@@ -40,7 +56,7 @@ class HostsController < ApplicationController
   def create
     set_sessions
     @host = Host.new( \
-      user_id: @user,\
+      user_id: @user.id,\
       category: @user_category, \
       house_type: @user_house_type, \
       room_type: @user_room_type, \
@@ -72,6 +88,7 @@ class HostsController < ApplicationController
   end
 
   def title
+    session[:house_description] = host_params[:house_description]
   end
 
   def guest_requirements
@@ -105,8 +122,27 @@ class HostsController < ApplicationController
   end
 
   def update
+    session[:house_name] = host_params[:house_name]
+    set_sessions
+    @host = Host.find(params[:id])
     if @host.user_id == current_user.id
-      @host.update(host_params)
+      @host.update( \
+        user_id: @user.id,\
+        category: @user_category, \
+        house_type: @user_house_type, \
+        room_type: @user_room_type, \
+        capacity: @user_capacity, \
+        num_bedroom: @user_num_bedroom, \
+        num_of_bath: @user_num_of_bath, \
+        country: @user_country, \
+        postal_code: @user_postal_code, \
+        state: @user_state, \
+        city: @user_city, \
+        address_line_1: @user_address_line_1, \
+        address_line_2: @user_address_line_2, \
+        house_description: @house_description, \
+        house_name: @house_name \
+        )
       redirect_to host_path(id: @host.id)
     end
   end
@@ -125,10 +161,27 @@ class HostsController < ApplicationController
     @user_city = session[:user_city]
     @user_address_line_1 = session[:user_address_line_1]
     @user_address_line_2 = session[:user_address_line_2]
+    @house_description = session[:house_description]
+    @house_name = session[:house_name]
   end
 
   def host_params
-    params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom, :num_of_bath, :country, :postal_code, :state, :city, :address_line_1, :address_line_2, :house_description, :house_name).merge(user_id: current_user.id)
+    params.require(:host).permit( \
+      :category, \
+      :house_type, \
+      :size_of_building, \
+      :room_type, :capacity, \
+      :num_bedroom, \
+      :num_of_bath, \
+      :country, \
+      :postal_code, \
+      :state, \
+      :city, \
+      :address_line_1, \
+      :address_line_2, \
+      :house_description, \
+      :house_name \
+      )
   end
 
   def set_user
