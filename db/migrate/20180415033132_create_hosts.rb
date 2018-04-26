@@ -18,8 +18,8 @@ class CreateHosts < ActiveRecord::Migration[5.0]
       t.float         :num_of_bath
       t.string        :house_discription
       t.string        :house_name
-      t.string        :have_you_experienced_lending_a_room
-      t.string        :how_often_do_you_want_to_stay
+      t.integer       :have_you_experienced_lending_a_room
+      t.integer       :how_often_do_you_want_to_stay
       t.integer       :reservation_limit
       t.integer       :reception_limit
       t.integer       :from_night

@@ -16,11 +16,10 @@
           = f.hidden_field :city
           = f.hidden_field :address_line_1
           = f.hidden_field :address_line_2
-
           %p
             = f.label :address_line_2, "次に建物タイプを選んでください"
           %p
             = f.text_field :address_line_2, placeholder: "例）１０１号室"
-          .btn.btn-success.btn-sm
-            = f.submit "送信", class: "next"
+          .continue-btn
+            = link_to "次へ", host_path
   .right_content

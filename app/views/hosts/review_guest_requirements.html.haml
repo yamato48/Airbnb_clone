@@ -1,0 +1,24 @@
+.col-md-7
+  .left-col-content
+    %h2 予約の要件を確認しよう
+    .all_guest_requirement
+      %h4 　Airbnbが求めるゲスト要件
+      %h5 ✅　メールアドレス
+      %h5 ✅　認証済みの電話番号
+      %h5 ✅　支払い情報
+      %h5 ✅　旅行に関するメッセージ
+      %h5 ✅　チェックイン時刻の申告(直前予約の場合)
+    .add_all_guest_requirement{style: "padding: 20px 0 20px;"}
+      %h4 追加の要件
+      %h5 追加の要件はありません
+    .before_all_guest_requirement
+      %h4 ハウスルール
+      %h5 ✅　乳幼児(2歳未満)OK
+      %h5 ✅　子供に安全とは言えない/不向き (2-12歳)
+      %h5 ✅　チェックインは15:00から
+      -# 仮置きボタン
+    .continue-btn{style: "padding-top: 40px;"}
+      = link_to "戻る", house_rules_host_path
+      = link_to "次へ", review_how_guests_book_host_path
+    .col-md-5.hidden-xs
+      .right-col-content

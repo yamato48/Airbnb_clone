@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421112839) do
+ActiveRecord::Schema.define(version: 20180425092402) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20180421112839) do
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "category"
-    t.string   "house_type"
-    t.string   "room_type"
-    t.string   "is_this_room_using_guest_only"
+    t.integer  "category"
+    t.integer  "house_type"
+    t.integer  "room_type"
+    t.integer  "size_of_building"
+    t.integer  "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -40,8 +41,6 @@ ActiveRecord::Schema.define(version: 20180421112839) do
     t.float    "num_of_bath",                         limit: 24
     t.string   "house_discription"
     t.string   "house_name"
-    t.string   "have_you_experienced_lending_a_room"
-    t.string   "how_often_do_you_want_to_stay"
     t.integer  "reservation_limit"
     t.integer  "reception_limit"
     t.integer  "from_night"
@@ -57,9 +56,8 @@ ActiveRecord::Schema.define(version: 20180421112839) do
     t.string   "profile_image"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
-    t.integer  "user_id"
-    t.integer  "currency"
-    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
+    t.integer  "have_you_experienced_lending_a_room"
+    t.integer  "how_often_do_you_want_to_stay"
   end
 
   create_table "house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,6 +101,5 @@ ActiveRecord::Schema.define(version: 20180421112839) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "hosts", "users"
   add_foreign_key "room_images", "users"
 end

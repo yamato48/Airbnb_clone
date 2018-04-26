@@ -1,0 +1,23 @@
+.full_content
+  .full_content__contents
+    .booking-confirmation
+      %h2 予約方法はこちらで大丈夫ですか?
+    .booking-info
+      .booking-info__image
+        = image_tag "host/left.png"
+      .booking-info__image
+        = image_tag "host/center.png"
+      .booking-info__image
+        = image_tag "host/right.png"
+    .booking-footer
+      .booking-footer__footer-text
+        %h4 徹頭徹尾お守りします
+      .booking-footer__footer-contents
+        .booking-footer__footer-contents__image
+          = image_tag "host/customer_support.png"
+        .booking-footer__footer-contents__text
+          %p 万一のトラブルのときには、Airbnbが24時間365日のカスタマーサポート、¥ 100,000,000の「ホスト保証」でお守りします。予約に違和感を感じた際には完全にペナルティ免除でキャンセルも可能。
+      -# 仮置きボタン
+    .continue-btn{style: "padding-top: 40px;"}
+      = link_to "戻る", review_guest_requirements_host_path
+      = link_to "次へ", availability_questions_host_path

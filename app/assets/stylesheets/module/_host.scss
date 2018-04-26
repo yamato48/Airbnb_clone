@@ -98,7 +98,7 @@ input[type="button"]{
     }
     .form_box {
       padding: 30px;
-      .category,.room, .bedroom, .bathroom, .location {
+      .category,.room, .bedroom, .bathroom, .location, .availability_questions {
         margin-top: 23px;
         p {
           color: #888;
@@ -183,4 +183,48 @@ input[type="button"]{
 }
 .right-col-content {
   margin-left: -50px;
+}
+
+// hosts#review-how-guests-book
+.full_content {
+  .full_content__contents {
+    h2 {
+      font-weight: normal;
+    }
+    h4 {
+      color: #484848;
+      font-size: 22px;
+    }
+    .booking-info__image {
+      float: left;
+      margin-bottom: 20px;
+    }
+    .booking-footer {
+      clear: both;
+      .booking-footer__footer-contents__image {
+        float: left;
+        margin-right: 40px;
+      }
+      .booking-footer__footer-contents__text {
+        float: left;
+        font-size: 17px;
+        line-height: 22px;
+        height: 100px;
+        width: 400px;
+      }
+    }
+    .continue-btn{
+      clear: both;
+      margin-top: 12px;
+    }
+    .continue-btn a{
+        padding: 8px 16px;
+        background-color: $green;
+        border: 1px solid $green;
+        border-radius: 2px;
+        min-width: 50px;
+        color: $white;
+        font-size: 15px;
+    }
+  }
 }

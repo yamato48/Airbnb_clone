@@ -1,0 +1,19 @@
+.contents
+  .left_content
+    %h2 質問に答えて予約の設定を進めましょう
+    .form_box
+      = form_for @host, url: {action: 'price'} do |f|
+        .availability_questions
+          .experience-question
+            %p
+              = f.label :have_you_experienced_lending_a_room, "今までお部屋を貸したことはありますか？"
+            %p
+              = f.select :have_you_experienced_lending_a_room, Host.have_you_experienced_lending_a_rooms_i18n.invert
+          .occupancy-question
+            %p
+              = f.label :how_often_do_you_want_to_stay, "泊めたい頻度は？"
+            %p
+              = f.select :how_often_do_you_want_to_stay, Host.how_often_do_you_want_to_stays_i18n.invert
+        .btn.btn-success.btn-sm{style: "margin-top: 30px;"}
+          = f.submit "次へ", class: "next"
+  .right_content

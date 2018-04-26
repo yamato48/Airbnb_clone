@@ -28,14 +28,15 @@ Rails.application.routes.draw do
       post 'title'
     # ステップ３
       get 'guest-requirements'
-      post 'house-rules'
-      post 'review-guest-requirements'
+      get 'house-rules'
+      get 'review-guest-requirements'
       get 'review-how-guests-book'
       get 'keep-calendar-up-to-date'
+      get 'availability-questions'
       post 'availability-questions'
-      post 'calendar'
       post 'price'
-      post 'additional-pricing'
+      post 'booking-scenarios'
+      get 'additional-pricing'
       get 'local-law'
     end
   end

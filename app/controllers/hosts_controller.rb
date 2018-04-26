@@ -48,27 +48,39 @@ class HostsController < ApplicationController
   end
 
   def guest_requirements
+    @host = Host.new
   end
 
   def house_rules
+    @host = Host.new
   end
 
   def review_guest_requirements
+    @host = Host.new
   end
 
   def review_how_guests_book
+    @host = Host.new
   end
 
   def keep_calendar_up_to_date
+    @host = Host.new
   end
 
   def availability_questions
+    @host = Host.new
   end
 
   def calendar
+    @host = Host.new
   end
 
   def price
+    @host = Host.new
+  end
+
+  def booking_scenarios
+    @host = Host.new
   end
 
   def additional_pricing
