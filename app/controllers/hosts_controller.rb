@@ -1,7 +1,23 @@
 class HostsController < ApplicationController
   before_action :set_host, only: [:rooms, :bedrooms, :bathrooms, :location, :amenities]
   before_action :set_user
-  before_action :set_host_id, only: [:show, :photos, :description, :title, :guest_requirements, :house_rules, :review_guest_requirements, :review_how_guests_book, :keep_calendar_up_to_date, :availability_questions, :calendar, :price, :additional_pricing, :local_law]
+  before_action :set_host_id, only: [ \
+    :show, \
+    :photos, \
+    :description, \
+    :title, \
+    :guest_requirements, \
+    :house_rules, \
+    :review_guest_requirements, \
+    :review_how_guests_book, \
+    :keep_calendar_up_to_date, \
+    :availability_questions, \
+    :calendar, \
+    :price, \
+    :additional_pricing, \
+    :local_law, \
+    :update \
+    ]
 
   def index
   end
