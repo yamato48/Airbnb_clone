@@ -24,10 +24,11 @@ Rails.application.routes.draw do
       post 'amenities'
     # ステップ２
       get 'photos'
-      post 'description'
-      post 'title'
+      patch 'description'
+      patch 'title'
     # ステップ３
       get 'guest-requirements'
+<<<<<<< HEAD
       get 'house-rules'
       get 'review-guest-requirements'
       get 'review-how-guests-book'
@@ -37,6 +38,16 @@ Rails.application.routes.draw do
       post 'price'
       post 'booking-scenarios'
       get 'additional-pricing'
+=======
+      patch 'house-rules'
+      patch 'review-guest-requirements'
+      get 'review-how-guests-book'
+      get 'keep-calendar-up-to-date'
+      patch 'availability-questions'
+      patch 'calendar'
+      patch 'price'
+      patch 'additional-pricing'
+>>>>>>> master
       get 'local-law'
     end
   end

@@ -1,0 +1,31 @@
+.contents
+  .left_content
+    %h2 説明文を編集する
+    .form_box
+      = form_for @host, url:  title_host_path(@host.id) do |f|
+        .description
+          %p
+            = f.label :house_discription, "概要"
+          %p
+            = f.text_area :house_discription, class: "house_discription", placeholder: "インテリア、照明、近くにあるものなどを説明してください。"
+          %p
+            = f.label :house_discription, "こんな旅にぴったりの宿です"
+          %p
+            = f.check_box :house_discription, {multiple: true}, '子ども連れファミリー', nil
+          %p
+            = f.label :house_discription, '子ども連れファミリー'
+          %p
+            = f.check_box :house_discription, {multiple: true}, '団体', nil
+          %p
+            = f.label :house_discription, '団体'
+          %p
+            = f.check_box :house_discription, {multiple: true}, 'ペット同伴', nil
+          %p
+            = f.label :house_discription, 'ペット同伴'
+          %p
+            = f.label :house_discription, "さらに追加 (任意)"
+            %h5 入力率わずか30%。意外と盲点です
+
+          .btn.btn-success.btn-sm
+            = f.submit "次へ", class: "next"
+  .right_content

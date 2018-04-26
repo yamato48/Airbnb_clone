@@ -98,7 +98,11 @@ input[type="button"]{
     }
     .form_box {
       padding: 30px;
+<<<<<<< HEAD
       .category,.room, .bedroom, .bathroom, .location, .availability_questions {
+=======
+      .category,.room, .bedroom, .bathroom, .location, .description, .title {
+>>>>>>> master
         margin-top: 23px;
         p {
           color: #888;
@@ -123,9 +127,22 @@ input[type="button"]{
           text-indent: 1em;
           // background:#EEE url(../img_common/arw_select_down.png) no-repeat;
           // background-size:20px 10px;
-          // background-position: right center;
+          // background-position: right center
         }
-
+        .house_discription {
+          resize: none;
+          width: 100%;
+          height: 123px;
+          padding: 20px;
+          border: 1px solid $form-gray;
+        }
+        .house_name {
+          width: 100%;
+          height: 70px;
+          padding: 20px;
+          border: 1px solid $form-gray;
+          margin-bottom: 122px;
+        }
       }
     }
   }
@@ -184,6 +201,7 @@ input[type="button"]{
 .right-col-content {
   margin-left: -50px;
 }
+<<<<<<< HEAD
 
 // hosts#review-how-guests-book
 .full_content {
@@ -228,3 +246,5 @@ input[type="button"]{
     }
   }
 }
+=======
+>>>>>>> master
