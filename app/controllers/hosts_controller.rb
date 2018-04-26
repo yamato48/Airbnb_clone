@@ -34,12 +34,14 @@ class HostsController < ApplicationController
     session[:user_address_line_1] = host_params[:address_line_1]
     session[:user_address_line_2] = host_params[:address_line_2]
     set_sessions
+    @amenity = Amenity.new
+    @safety_amenity = SafetyAmenity.new
   end
 
   def create
     set_sessions
     @host = Host.new( \
-      user_id: @user,\
+      user_id: @user.id,\
       category: @user_category, \
       house_type: @user_house_type, \
       room_type: @user_room_type, \
@@ -54,7 +56,11 @@ class HostsController < ApplicationController
       address_line_2: @user_address_line_2 \
       )
     @host.save
-    if @host.save
+    @amenity = Amenity.new(amenity_params)
+    @amenity.save
+    @safety_amenity = SafetyAmenity.new(safety_amenity_params)
+    @safety_amenity.save
+    if @host.save && @amenity.save && @safety_amenity.save
       redirect_to host_path(id: @host.id)
     else
       render :amenities
@@ -121,7 +127,15 @@ class HostsController < ApplicationController
   end
 
   def host_params
-    params.require(:host).permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom, :num_of_bath, :country, :postal_code, :state, :city, :address_line_1, :address_line_2,).merge(user_id: current_user.id)
+    params.permit(:category, :house_type, :size_of_building, :room_type, :capacity, :num_bedroom, :num_of_bath, :country, :postal_code, :state, :city, :address_line_1, :address_line_2)
+  end
+
+  def amenity_params
+    params.require(:amenity).permit(:necessity, :wifi, :shampoo, :closet, :tv, :air_con, :breakfast, :desk, :heater, :steam_iron, :hair_dryer, :pet, :entrance)
+  end
+
+  def safety_amenity_params
+    params.require(:safety_amenity).permit(:smoke_sensor, :hochiki, :first_aid_kit, :emergency_info, :fire_extinguisher, :private_room)
   end
 
   def set_user
