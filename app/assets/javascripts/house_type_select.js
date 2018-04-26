@@ -1,24 +1,24 @@
 $(function() {
-  function buildHTML(houseTypes, selectElement) {
+  function replaceHouseTypeOptions(houseTypes, selectElement) {
     selectElement.html('<option value>建物タイプを選択</option>');
-    $(houseTypes).each(function() {
+    $.each(houseTypes, function() {
       var categoryId = $('.select-category').find('option:selected').val();
       var discriptionPath =  '/categories/' + categoryId + '/house_types/' + this.id;
-      var optionElement = $('<option>').val(this.type).text(this.type).attr('data-discription-path', discriptionPath);
+      var optionElement = $('<option>').val(this.id).text(this.type).attr('data-discription-path', discriptionPath);
       selectElement.append(optionElement);
     });
   };
 
-  function getHouseTypeOptions() {
-    var houseTypePath = $(this).find('option:selected').data('houseTypePath');
+  $('.select-category').change(function() {
+    var houseTypeOptionPath = $(this).find('option:selected').data('houseTypePath');
     var selectHouseType = $(this).closest('form').find('.select-house-type');
-    if (houseTypePath != null) {
+    if (houseTypeOptionPath != null) {
       $.ajax({
-        url: houseTypePath,
+        url: houseTypeOptionPath,
         type: "GET",
       })
       .done(function(houseTypes) {
-        buildHTML(houseTypes, selectHouseType)
+        replaceHouseTypeOptions(houseTypes, selectHouseType)
       })
       .fail(function(XMLHttpRequest, textStatus, errorThrown) {
         console.error("Error occurred in replaceChildrenOptions");
@@ -27,11 +27,11 @@ $(function() {
         return console.log("errorThrown: " + errorThrown);
       })
     } else {
-      buildHTML([], selectHouseType);
+      replaceHouseTypeOptions([], selectHouseType);
     };
-  };
+  });
 
-  function getDiscriptions(){
+  $('.select-house-type').change(function(){
     houseTypeId = $(this).find('option:selected').val();
     discriptionPath = $(this).find('option:selected').data('discriptionPath');
     if (discriptionPath != null) {
@@ -40,10 +40,12 @@ $(function() {
         type: "GET",
       })
       .done(function(houseTypeData){
+        console.log('通信成功')
         console.log(houseTypeData)
         $('.house-discription').text(houseTypeData.house_discription);
       })
       .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+        console.log('通信失敗')
         console.error("Error occurred in replaceChildrenOptions");
         console.log("XMLHttpRequest: " + XMLHttpRequest.status);
         console.log("textStatus: " + textStatus);
@@ -52,8 +54,5 @@ $(function() {
     } else {
       $('.house-discription').text('')
     };
-  };
-
-  $('.select-category').change(getHouseTypeOptions);
-  $('.select-house-type').change(getDiscriptions);
+  });
 });
