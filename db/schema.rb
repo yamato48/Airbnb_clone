@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20180423111116) do
   end
 
   create_table "category_house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "category_id"
-    t.integer "house_type_id"
+    t.integer "category_id",   null: false
+    t.integer "house_type_id", null: false
     t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
     t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
   end
@@ -62,9 +62,8 @@ ActiveRecord::Schema.define(version: 20180423111116) do
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "category"
     t.string   "house_type"
-    t.integer  "room_type"
-    t.integer  "size_of_building"
-    t.integer  "is_this_room_using_guest_only"
+    t.string   "room_type"
+    t.string   "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -75,7 +74,7 @@ ActiveRecord::Schema.define(version: 20180423111116) do
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.float    "num_of_bath",                         limit: 24
-    t.string   "house_discription"
+    t.string   "house_description"
     t.string   "house_name"
     t.string   "have_you_experienced_lending_a_room"
     t.string   "how_often_do_you_want_to_stay"
