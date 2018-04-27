@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426090513) do
+ActiveRecord::Schema.define(version: 20180423111116) do
+
+  create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "necessity"
+    t.string   "wifi"
+    t.string   "shampoo"
+    t.string   "closet"
+    t.string   "tv"
+    t.string   "air_con"
+    t.string   "breakfast"
+    t.string   "desk"
+    t.string   "heater"
+    t.string   "steam_iron"
+    t.string   "hair_dryer"
+    t.string   "pet"
+    t.string   "entrance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -21,6 +39,24 @@ ActiveRecord::Schema.define(version: 20180426090513) do
     t.integer "house_type_id", null: false
     t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
     t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
+  end
+
+  create_table "host_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "host_id",    null: false
+    t.integer  "amenity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_host_amenities_on_amenity_id", using: :btree
+    t.index ["host_id"], name: "index_host_amenities_on_host_id", using: :btree
+  end
+
+  create_table "host_safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "host_id",           null: false
+    t.integer  "safety_amenity_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["host_id"], name: "index_host_safety_amenities_on_host_id", using: :btree
+    t.index ["safety_amenity_id"], name: "index_host_safety_amenities_on_safety_amenity_id", using: :btree
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -74,6 +110,17 @@ ActiveRecord::Schema.define(version: 20180426090513) do
     t.index ["user_id"], name: "index_room_images_on_user_id", using: :btree
   end
 
+  create_table "safety_amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "smoke_sensor"
+    t.string   "hochiki"
+    t.string   "first_aid_kit"
+    t.string   "emergency_info"
+    t.string   "fire_extinguisher"
+    t.string   "private_room"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -103,6 +150,12 @@ ActiveRecord::Schema.define(version: 20180426090513) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "category_house_types", "categories"
+  add_foreign_key "category_house_types", "house_types"
+  add_foreign_key "host_amenities", "amenities"
+  add_foreign_key "host_amenities", "hosts"
+  add_foreign_key "host_safety_amenities", "hosts"
+  add_foreign_key "host_safety_amenities", "safety_amenities"
   add_foreign_key "hosts", "users"
   add_foreign_key "room_images", "users"
 end
