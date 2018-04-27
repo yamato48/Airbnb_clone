@@ -172,7 +172,7 @@ class HostsController < ApplicationController
   end
 
   def host_params
-    params.permit( \
+    params.require(:host).permit( \
       :category, \
       :house_type, \
       :size_of_building, \
