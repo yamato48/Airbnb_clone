@@ -98,7 +98,7 @@ input[type="button"]{
     }
     .form_box {
       padding: 30px;
-      .category,.room, .bedroom, .bathroom, .location, .availability_questions {
+      .category,.room, .bedroom, .bathroom, .location, .availability_questions, .price {
         margin-top: 23px;
         p {
           color: #888;
@@ -109,6 +109,18 @@ input[type="button"]{
           font-weight: normal;
           font-size: 1.3em;
         }
+        .text_field {
+          color: #333;
+          appearance: none;
+          background-color: #FFF;
+          height: 50px;
+          width:  320px;
+          text-indent: 1em;
+          // background:#EEE url(../img_common/arw_select_down.png) no-repeat;
+          // background-size:20px 10px;
+          // background-position: right center;
+        }
+
         select {
           color: #333;
           -webkit-appearance: none;

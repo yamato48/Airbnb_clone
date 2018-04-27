@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20180425092402) do
   end
 
   create_table "category_house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "category_id",   null: false
-    t.integer "house_type_id", null: false
+    t.integer "category_id"
+    t.integer "house_type_id"
     t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
     t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
   end
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "category"
-    t.integer  "house_type"
+    t.string   "category"
+    t.string   "house_type"
     t.integer  "room_type"
     t.integer  "size_of_building"
     t.integer  "is_this_room_using_guest_only"
@@ -56,8 +56,11 @@ ActiveRecord::Schema.define(version: 20180425092402) do
     t.string   "profile_image"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.integer  "user_id"
+    t.integer  "currency"
     t.integer  "have_you_experienced_lending_a_room"
     t.integer  "how_often_do_you_want_to_stay"
+    t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 
   create_table "house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,5 +104,8 @@ ActiveRecord::Schema.define(version: 20180425092402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "category_house_types", "categories"
+  add_foreign_key "category_house_types", "house_types"
+  add_foreign_key "hosts", "users"
   add_foreign_key "room_images", "users"
 end

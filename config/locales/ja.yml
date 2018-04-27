@@ -251,6 +251,22 @@ ja:
         still_dont_know: まだわからない
         part_time: パートタイム
         frequently: できるだけ頻繁に
+      currency:
+        usd: USD
+        aud: AUD
+        cad: CAD
+        gbp: GBP
+        cny: CNY
+        eur: EUR
+        rub: RUB
+        vnd: VND
+        inr: INR
+        myr: MYR
+        thb: THB
+        krw: KRW
+        jpy: JPY
+        sek: SEK
+        dkk: DKK
     user:
       sex:
         male: 男性

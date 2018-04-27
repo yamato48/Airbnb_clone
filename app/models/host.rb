@@ -7,4 +7,5 @@ class Host < ApplicationRecord
   enum is_this_room_using_guest_only: [ :bedroom_count_1, :bedroom_count_2, :bedroom_count_3, :bedroom_count_4, :bedroom_count_5, :bedroom_count_6, :bedroom_count_7, :bedroom_count_8, :bedroom_count_9, :bedroom_count_10, ]
   enum have_you_experienced_lending_a_room: [ :beginner, :experienced ]
   enum how_often_do_you_want_to_stay: [ :still_dont_know, :part_time, :frequently ]
+  enum currency: [ :usd, :aud, :cad, :gbp, :cny, :eur, :rub, :vnd, :inr, :myr, :thb, :krw, :jpy, :sek, :dkk]
 end

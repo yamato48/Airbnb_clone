@@ -13,13 +13,12 @@ class User < ApplicationRecord
   #                                     content_type: ["image/jpg","image/jpeg","image/png"]
   validates :birth_day, presence: true
   validates :last_name, :first_name,
-    length: { minimum: 1, maximum: 10 } ,presence: true  
-  
+    length: { minimum: 1, maximum: 10 } ,presence: true
+
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, presence: true
-  before_validation :remove_spaces  
+  before_validation :remove_spaces
    # numericality: { only_integer: true }
   private
-
   def remove_spaces
     email.strip!
   end
@@ -28,7 +27,3 @@ class User < ApplicationRecord
   enum language: [:english, :mandarinchinese, :cantonchinese, :spanish, :russian, :italian, :french, :german, :portusuese, :arabic, :turkish, :vietnamese, :hindi, :malay, :thai, :korean, :japanese, :dutch, :norwegian, :swedish, :danish]
   enum currency: [:usd, :aud, :cad, :gbp, :cny, :eur, :rub, :vnd, :inr, :myr, :thb, :krw, :jpy, :sek, :dkk]
 end
-
-
-
-
