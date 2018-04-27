@@ -4,6 +4,7 @@
     .form_box
 
       = form_for @host, url: {controller: "hosts", action: "create"} do |f|
+        = f.hidden_field :category
         = fields_for @amenity, url: {controller: "hosts", action: "create"} do |a|
           %p
             = a.label :necessity, "必需品 タオル、シーツ、石鹸、トイレットペーパー、枕"
