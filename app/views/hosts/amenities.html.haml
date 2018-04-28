@@ -1,0 +1,98 @@
+.contents
+  .left_content.col-lg-7.col-md-5
+    %h2 ご用意するアメニティ・設備は?
+    .form_box
+
+      = form_for @host, url: {controller: "hosts", action: "create"} do |f|
+        = fields_for @amenity, url: {controller: "hosts", action: "create"} do |a|
+          %p
+            = a.label :necessity, "必需品 タオル、シーツ、石鹸、トイレットペーパー、枕"
+          %p
+            = a.check_box :necessity
+          %p
+            = a.label :wifi, "Wi-Fi"
+          %p
+            = a.check_box :wifi
+          %p
+            = a.label :shampoo, "シャンプー"
+          %p
+            = a.check_box :shampoo
+          %p
+            = a.label :closet, "クローゼット/タンス"
+          %p
+            = a.check_box :closet
+          %p
+            = a.label :tv, "テレビ"
+          %p
+            = a.check_box :tv
+          %p
+            = a.label :air_con, "エアコン"
+          %p
+            = a.check_box :air_con
+          %p
+            = a.label :breakfast, "朝食、コーヒー、お茶"
+          %p
+            = a.check_box :breakfast
+          %p
+            = a.label :desk, "机・ワークスペース"
+          %p
+            = a.check_box :desk
+          %p
+            = a.label :heater, "暖炉・薪ストーブ・囲炉裏"
+          %p
+            = a.check_box :heater
+          %p
+            = a.label :steam_iron, "アイロン"
+          %p
+            = a.check_box :steam_iron
+          %p
+            = a.label :hair_dryer, "ヘアドライヤー"
+          %p
+            = a.check_box :hair_dryer
+          %p
+            = a.label :pet, "ペットOK"
+          %p
+            = a.check_box :pet
+          %p
+            = a.label :entrance, "専用の玄関"
+          %p
+            = a.check_box :entrance
+
+        %span 安全対策のアメニティ
+        = fields_for @safety_amenity, url: {controller: "hosts", action: "create"} do |s|
+          %p
+            = s.label :smoke_sensor, "煙感知器 地域の法令をお確かめください。各部屋に煙検知器設置を義務づけている地域もあります。"
+          %p
+            = s.check_box :smoke_sensor
+          %p
+            = s.label :hochiki, "一酸化炭素検知器 地域の法令をお確かめください。各部屋に一酸化炭素検知器設置を義務づけている地域もあります。"
+          %p
+            = s.check_box :hochiki
+          %p
+            = s.label :first_aid_kit, "応急手当セット"
+          %p
+            = s.check_box :first_aid_kit
+          %p
+            = s.label :emergency_info, "防災カード 緊急連絡先と避難情報は掲示しておきましょう。"
+          %p
+            = s.check_box :emergency_info
+          %p
+            = s.label :fire_extinguisher, "消火器"
+          %p
+            = s.check_box :fire_extinguisher
+          %p
+            = s.label :private_room, "寝室は鍵付きドア 安全性とプライバシーが保たれる鍵付きの個室のことです。"
+          %p
+            = s.check_box :private_room
+
+        .btn.btn-success.btn-sm
+          = f.submit "完了"
+
+  .right_content.col-lg-7.col-md-5
+    .right_content__advice
+      生活必需品を揃えておくと、ゲストも自分の家のようにくつろげます。
+      %br
+      %br
+      朝食を用意する方もいれば、コーヒーやお茶だけにする方も。どれも義
+      務というわけではないけれど、あると温かいおもてなしの気持ちが伝わ
+      るアイテムです。

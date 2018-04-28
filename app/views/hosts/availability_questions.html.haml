@@ -2,7 +2,7 @@
   .left_content
     %h2 質問に答えて予約の設定を進めましょう
     .form_box
-      = form_for @host, url: {action: 'price'} do |f|
+      = form_for @host, url: price_host_path(@host.id) do |f|
         .availability_questions
           .experience-question
             %p
