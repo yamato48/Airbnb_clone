@@ -10,6 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20180425092402) do
+=======
 ActiveRecord::Schema.define(version: 20180423111116) do
 
   create_table "amenities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -29,14 +32,15 @@ ActiveRecord::Schema.define(version: 20180423111116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+>>>>>>> master
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
   end
 
   create_table "category_house_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "category_id",   null: false
-    t.integer "house_type_id", null: false
+    t.integer "category_id"
+    t.integer "house_type_id"
     t.index ["category_id"], name: "index_category_house_types_on_category_id", using: :btree
     t.index ["house_type_id"], name: "index_category_house_types_on_house_type_id", using: :btree
   end
@@ -62,8 +66,9 @@ ActiveRecord::Schema.define(version: 20180423111116) do
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "category"
     t.string   "house_type"
-    t.string   "room_type"
-    t.string   "is_this_room_using_guest_only"
+    t.integer  "room_type"
+    t.integer  "size_of_building"
+    t.integer  "is_this_room_using_guest_only"
     t.integer  "capacity"
     t.integer  "num_bedroom"
     t.integer  "num_bed"
@@ -76,8 +81,6 @@ ActiveRecord::Schema.define(version: 20180423111116) do
     t.float    "num_of_bath",                         limit: 24
     t.string   "house_description"
     t.string   "house_name"
-    t.string   "have_you_experienced_lending_a_room"
-    t.string   "how_often_do_you_want_to_stay"
     t.integer  "reservation_limit"
     t.integer  "reception_limit"
     t.integer  "from_night"
@@ -95,6 +98,8 @@ ActiveRecord::Schema.define(version: 20180423111116) do
     t.datetime "updated_at",                                     null: false
     t.integer  "user_id"
     t.integer  "currency"
+    t.integer  "have_you_experienced_lending_a_room"
+    t.integer  "how_often_do_you_want_to_stay"
     t.index ["user_id"], name: "index_hosts_on_user_id", using: :btree
   end
 

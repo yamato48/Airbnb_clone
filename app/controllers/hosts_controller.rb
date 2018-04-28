@@ -98,18 +98,23 @@ class HostsController < ApplicationController
   end
 
   def guest_requirements
+    @host = Host.new
   end
 
   def house_rules
+    @host = Host.new
   end
 
   def review_guest_requirements
+    @host = Host.new
   end
 
   def review_how_guests_book
+    @host = Host.new
   end
 
   def keep_calendar_up_to_date
+    @host = Host.new
   end
 
   def availability_questions
@@ -121,6 +126,9 @@ class HostsController < ApplicationController
   def price
   end
 
+  def booking_scenarios
+  end
+
   def additional_pricing
   end
 
@@ -128,6 +136,7 @@ class HostsController < ApplicationController
   end
 
   def update
+    session[:user_basic_charge] = host_params[:basic_charge]
     session[:house_name] = host_params[:house_name]
     set_sessions
     @host = Host.find(params[:id])
@@ -147,7 +156,8 @@ class HostsController < ApplicationController
         address_line_1: @user_address_line_1, \
         address_line_2: @user_address_line_2, \
         house_description: @house_description, \
-        house_name: @house_name \
+        house_name: @house_name, \
+        basic_charge: @basic_charge \
         )
       redirect_to host_path(id: @host.id)
     end
@@ -169,6 +179,7 @@ class HostsController < ApplicationController
     @user_address_line_2 = session[:user_address_line_2]
     @house_description = session[:house_description]
     @house_name = session[:house_name]
+    @basic_charge = session[:user_basic_charge]
   end
 
   def host_params
@@ -186,7 +197,8 @@ class HostsController < ApplicationController
       :address_line_1, \
       :address_line_2, \
       :house_description, \
-      :house_name \
+      :house_name, \
+      :basic_charge \
     )
   end
 

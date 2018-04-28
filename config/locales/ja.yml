@@ -239,11 +239,34 @@ ja:
         bedroom_count_7: 7ベッドルーム
         bedroom_count_8: 8ベッドルーム
         bedroom_count_9: 9ベッドルーム
-        bedroom_count_10: 10ベッドルーム        
+        bedroom_count_10: 10ベッドルーム
       room_type:
         entire_house: 住宅全体
         private_room: 個室
         share_room: シェアルーム
+      have_you_experienced_lending_a_room:
+        beginner: 初心者
+        experienced: 経験者
+      how_often_do_you_want_to_stay:
+        still_dont_know: まだわからない
+        part_time: パートタイム
+        frequently: できるだけ頻繁に
+      currency:
+        usd: USD
+        aud: AUD
+        cad: CAD
+        gbp: GBP
+        cny: CNY
+        eur: EUR
+        rub: RUB
+        vnd: VND
+        inr: INR
+        myr: MYR
+        thb: THB
+        krw: KRW
+        jpy: JPY
+        sek: SEK
+        dkk: DKK
     user:
       sex:
         male: 男性

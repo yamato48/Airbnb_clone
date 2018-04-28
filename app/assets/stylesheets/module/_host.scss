@@ -98,7 +98,7 @@ input[type="button"]{
     }
     .form_box {
       padding: 30px;
-      .category,.room, .bedroom, .bathroom, .location, .description, .title {
+      .category,.room, .bedroom, .bathroom, .location, .availability_questions, .price, .description, .title {
         margin-top: 23px;
         p {
           color: #888;
@@ -109,6 +109,18 @@ input[type="button"]{
           font-weight: normal;
           font-size: 1.3em;
         }
+        .text_field {
+          color: #333;
+          appearance: none;
+          background-color: #FFF;
+          height: 50px;
+          width:  320px;
+          text-indent: 1em;
+          // background:#EEE url(../img_common/arw_select_down.png) no-repeat;
+          // background-size:20px 10px;
+          // background-position: right center;
+        }
+
         select {
           color: #333;
           -webkit-appearance: none;
@@ -196,4 +208,48 @@ input[type="button"]{
 }
 .right-col-content {
   margin-left: -50px;
+}
+
+// hosts#review-how-guests-book
+.full_content {
+  .full_content__contents {
+    h2 {
+      font-weight: normal;
+    }
+    h4 {
+      color: #484848;
+      font-size: 22px;
+    }
+    .booking-info__image {
+      float: left;
+      margin-bottom: 20px;
+    }
+    .booking-footer {
+      clear: both;
+      .booking-footer__footer-contents__image {
+        float: left;
+        margin-right: 40px;
+      }
+      .booking-footer__footer-contents__text {
+        float: left;
+        font-size: 17px;
+        line-height: 22px;
+        height: 100px;
+        width: 400px;
+      }
+    }
+    .continue-btn{
+      clear: both;
+      margin-top: 12px;
+    }
+    .continue-btn a{
+        padding: 8px 16px;
+        background-color: $green;
+        border: 1px solid $green;
+        border-radius: 2px;
+        min-width: 50px;
+        color: $white;
+        font-size: 15px;
+    }
+  }
 }

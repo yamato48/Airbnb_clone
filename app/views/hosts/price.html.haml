@@ -1,0 +1,17 @@
+.contents
+  .left_content
+    .form_box
+      = form_for @host do |f|
+        .price
+          .price_text
+            %h2 基本料金
+            %h4 基本料金とは、デフォルトの1泊料金のことです。
+          .price_text_filed
+            %h4 基本料金
+            = f.text_field :basic_charge, placeholder: "/泊", class: "text_field"
+          .price_currency
+            %h4 通貨
+            = f.select :currency, Host.currencies_i18n.invert
+        .continue-btn{style: "padding-top: 40px;"}
+          = link_to "戻る", review_guest_requirements_host_path
+          = f.submit "次へ", class: "next"

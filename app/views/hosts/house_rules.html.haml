@@ -1,0 +1,65 @@
+.col-md-7
+  .left-col-content
+    .title
+      %h2 滞在中のハウスルールを設定しましょう
+      -# スイッチボタン部分のハウスルール
+      .main_house_rules
+        .main_house_rules__box
+          .form-groyp.row
+            .main_house_rules__text__child
+              %label{class: 'form_label', name: 'child'} 子ども(2-12歳)OK
+            .btn-group{"data-toggle": "buttons"}
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'sex', value: 0} いいえ
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'sex', value: 1}　はい
+        .main_house_rules__box
+          .form-groyp.row
+            .main_house_rules__text__baby
+              %label{class: 'form_label', name: 'baby'} 乳幼児(2歳未満)OK
+            .btn-group{"data-toggle": "buttons"}
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'baby', value: 0} いいえ
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'baby', value: 1}　はい
+        .main_house_rules__box
+          .form-groyp.row
+            .main_house_rules__text__pet
+              %label{class: 'form_label', name: 'pet'} ペットOK
+            .btn-group{"data-toggle": "buttons"}
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'pet', value: 0} いいえ
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'pet', value: 1}　はい
+        .main_house_rules__box
+          .form-groyp.row
+            .main_house_rules__text__smoking
+              %label{class: 'form_label', name: 'smoking'} 喫煙OK
+            .btn-group{"data-toggle": "buttons"}
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'smoking', value: 0} いいえ
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'smoking', value: 1}　はい
+        .main_house_rules__box
+          .form-groyp.row
+            .main_house_rules__text__event
+              %label{class: 'form_label', name: 'event'} イベント&パーティOK
+            .btn-group{"data-toggle": "buttons"}
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'event', value: 0} いいえ
+              %label.btn.btn-outline-secondary{style: "width:40%"}
+                %input{type: 'radio', name: 'event', value: 1}　はい
+      -# 追加ハウスルール部分(フェイク)
+      .add_house_rules
+        .add_house_rules__text{style: "margin-top: 50px;"}
+          %h4 追加ルール
+        .add_house_rules__text_filed
+          %input{type: 'text_filed', placeholder: '騒音禁止の時間帯、土足厳禁など', style: 'height: 50px;' 'width: 300px;'}
+          %input{type: 'submit', value: "追加", style: 'height: 50px;' 'width: 100px;'}
+      -# お家についてゲストが事前に知っておくべきこと部分はつくらない
+      .continue-btn
+        = link_to "戻る", guest_requirements_host_path
+        = link_to "次へ", review_guest_requirements_host_path
+.col-md-5.hidden-xs
+  .right-col-content
+    = image_tag "host/show_migi.png", height: "700px"
