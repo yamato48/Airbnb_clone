@@ -16,7 +16,7 @@
             %li.sidenav-item-btm
               = link_to "紹介文"
         .btn.btn-block.space-top-4
-          = link_to "プロフィールを見る", "/users/#{@user.id}/show"
+          = link_to "プロフィールを見る", "/users/#{@user.id}"
       .col-md-9#dashboard-content
         =form_for(current_user) do |f|
           .panel.space-4
