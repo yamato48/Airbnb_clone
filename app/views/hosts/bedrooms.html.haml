@@ -2,31 +2,6 @@
   .left_content
     %h2 最大何人まで宿泊可能ですか?
     .form_box
-      %p
-        = "@user_category: #{@user_category}"
-      %p
-        = "@user_house_type: #{@user_house_type}"
-      %p
-        = "@user_room_type: #{@user_room_type}"
-      %p
-        = "@user_capacity: #{@user_capacity}"
-      %p
-        = "@user_num_bedroom: #{@user_num_bedroom}"
-      %p
-        = "@user_num_of_bath #{@user_num_of_bath}"
-      %p
-        = "@user_country: #{@user_country}"
-      %p
-        = "@user_postal_code: #{@user_postal_code}"
-      %p
-        = "@user_state: #{@user_state}"
-      %p
-        = "@user_city: #{@user_city}"
-      %p
-        = "@user_address_line_1: #{@user_address_line_1}"
-      %p
-        = "@user_address_line_2: #{@user_address_line_2}"
-
       = form_for @host, url: bathrooms_hosts_path do |f|
         %p
           = f.label :capacity, "定員"
